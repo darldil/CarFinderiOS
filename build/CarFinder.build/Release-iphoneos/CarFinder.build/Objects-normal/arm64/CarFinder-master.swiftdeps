@@ -1,0 +1,21 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.53 clang-802.0.42)"
+options: "61ae7ebeb6048c470b1855bffebe72d0"
+build_time: [547301803, 416403000]
+inputs:
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/LoggedView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/SettingsView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/Extensiones.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/ViewController.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/Mapa.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/CarPrincipalView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/ChangeEmailView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/PersonalDataView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/ChangePasswordView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/RegistroView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/conexion.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/MapTableController.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/AddCarView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/Usuarios.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/MapView.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/AppDelegate.swift": [9223372036854775807, 0]
+  "/Users/Mauri/Documents/Xcode/CarFinder/CarFinder/Coches.swift": [9223372036854775807, 0]
