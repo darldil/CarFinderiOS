@@ -10,11 +10,11 @@ import UIKit
 
 class CarPrincipalView: UITableViewController {
     
-    private var datos : [String] = []
+    //private var datos : [String] = []
     private var numRows : Int = 0
     private var usuario : String = ""
-    private var matriculas : [String] = []
-    private var loaded : Bool = false
+    private var coches : [TransferCoches] = []
+    @IBOutlet weak var loadingActivity: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +40,9 @@ class CarPrincipalView: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        datos = []
-        matriculas = []
+        //datos = []
+        //matriculas = []
+        coches = []
         tableView.reloadData()
         self.cargar()
     }
@@ -53,7 +54,7 @@ class CarPrincipalView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return self.datos.count
+        return self.coches.count
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -64,9 +65,11 @@ class CarPrincipalView: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let con = Coches ()
             // handle delete (by removing the data from your array and updating the tableview)
-            let matr = matriculas[indexPath.item]
-            datos.remove(at: indexPath.item)
-            matriculas.remove(at: indexPath.item)
+            //let matr = matriculas[indexPath.item]
+            let matr = coches[indexPath.item].getMatricula()
+            //datos.remove(at: indexPath.item)
+            //matriculas.remove(at: indexPath.item)
+            coches.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .fade)
             con.eliminarCoche(matricula: matr, email: self.usuario) {
                 respuesta in
@@ -102,55 +105,49 @@ class CarPrincipalView: UITableViewController {
     
     private func cargar() {
         let con = Coches ()
-        let alertController = showConnecting(mensaje: "Cargando...\n\n")
+        //let alertController = showConnecting(mensaje: "Cargando...\n\n")
         let preferences = UserDefaults.standard
         
         self.usuario = preferences.string(forKey: "user")!
         
-        if !loaded {
-            DispatchQueue.main.async(execute: {
-                self.present(alertController, animated: true, completion: nil)
-            });
-        }
-        
         con.cargarCoches(email: usuario) {
             respuesta in
             
+            self.loadingActivity.stopAnimating()
+            self.loadingActivity.isHidden = true
+            
             //Si el servidor ha fallado
             if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                alertController.dismiss(animated: true, completion: {
-                    let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                        alert.dismiss(animated: true, completion: nil)
-                    })
-                    self.present(alert, animated: true)
+                let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                    alert.dismiss(animated: true, completion: nil)
                 })
+                self.present(alert, animated: true)
             }
             else {
-                //Si la conexión se ha realizado correctamente
-                if !self.loaded {
-                    alertController.dismiss(animated: true, completion: nil)
-                }
                 
                 //Si los datos son correctos
                 if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
                     let datos : [[String:String]] = respuesta.value(forKey: "coches") as! [[String : String]]
         
                     for temp in datos {
-                        let string : String = temp["marca"]! + " " + temp["modelo"]! + " - " + temp["matricula"]!
-                        self.datos.append(string)
-                        self.matriculas.append(temp["matricula"]!)
+                        //let string : String = temp["marca"]! + " " + temp["modelo"]! + " - " + temp["matricula"]!
+                        //self.datos.append(string)
+                        //self.matriculas.append(temp["matricula"]!)
+                        let transfer : TransferCoches = TransferCoches ()
+                        transfer.setMatricula(matr: temp["matricula"]!)
+                        transfer.setModelo(mod:temp["modelo"]!)
+                        transfer.setMarca(marca: temp["marca"]!)
+                        self.coches.append(transfer)
                         self.numRows += 1
                     }
                     self.reloadTable()
                 }
             }
-            self.loaded = true
         }
     }
     
     private func reloadTable() {
-        
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
             return
@@ -166,9 +163,10 @@ class CarPrincipalView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
         
-        if (datos.capacity != 0) {
-            cell.textLabel?.text = datos[indexPath.row]
-            cell.textLabel?.textColor = UIColor.white
+        if (coches.capacity != 0) {
+            cell.textLabel?.text = coches[indexPath.row].getMarca() + " " +
+                coches[indexPath.row].getModelo() + " - " + coches[indexPath.row].getMatricula()
+            //cell.textLabel?.text = datos[indexPath.row]
         }
         
         return cell

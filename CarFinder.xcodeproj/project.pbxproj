@@ -12,6 +12,7 @@
 		542767951EABC7E200B341D1 /* mapa.html in Resources */ = {isa = PBXBuildFile; fileRef = 542767931EABC7E200B341D1 /* mapa.html */; };
 		542DE2B21EB268DD004751ED /* MapTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542DE2B11EB268DD004751ED /* MapTableController.swift */; };
 		542DE2B41EB2941D004751ED /* Mapa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542DE2B31EB2941D004751ED /* Mapa.swift */; };
+		543216A31EC4C2A400453761 /* TransferCoches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 543216A21EC4C2A400453761 /* TransferCoches.swift */; };
 		5463DD691EAFF0C100FDE2DA /* AddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5463DD681EAFF0C100FDE2DA /* AddCarView.swift */; };
 		547970831EA6792700126B51 /* conexion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547970821EA6792700126B51 /* conexion.swift */; };
 		547A81B61EC334E000DC2E57 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547A81B51EC334E000DC2E57 /* URLExtension.swift */; };
@@ -19,6 +20,9 @@
 		549199CA1EAF87F0009347CC /* Coches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549199C91EAF87F0009347CC /* Coches.swift */; };
 		54A47EFB1EAA1C1100340E5E /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A47EFA1EAA1C1100340E5E /* ChangePasswordView.swift */; };
 		54A47EFD1EAA3E6700340E5E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A47EFC1EAA3E6700340E5E /* MapView.swift */; };
+		54AF9D781EC3755100973D1D /* error.css in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D751EC3755100973D1D /* error.css */; };
+		54AF9D791EC3755100973D1D /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D761EC3755100973D1D /* error.html */; };
+		54AF9D7A1EC3755100973D1D /* Error.png in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D771EC3755100973D1D /* Error.png */; };
 		54B521D11EBC8AA400EE5102 /* ChangeEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B521D01EBC8AA400EE5102 /* ChangeEmailView.swift */; };
 		54C1CAF81EA81E5000B3EBF6 /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1CAF71EA81E5000B3EBF6 /* Extensiones.swift */; };
 		54D3381B1EA29B5600B7AFB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3381A1EA29B5600B7AFB5 /* AppDelegate.swift */; };
@@ -58,6 +62,7 @@
 		542767931EABC7E200B341D1 /* mapa.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = mapa.html; sourceTree = "<group>"; };
 		542DE2B11EB268DD004751ED /* MapTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTableController.swift; sourceTree = "<group>"; };
 		542DE2B31EB2941D004751ED /* Mapa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapa.swift; sourceTree = "<group>"; };
+		543216A21EC4C2A400453761 /* TransferCoches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferCoches.swift; sourceTree = "<group>"; };
 		5463DD681EAFF0C100FDE2DA /* AddCarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCarView.swift; sourceTree = "<group>"; };
 		547970821EA6792700126B51 /* conexion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = conexion.swift; sourceTree = "<group>"; };
 		547A81B51EC334E000DC2E57 /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
@@ -65,6 +70,9 @@
 		549199C91EAF87F0009347CC /* Coches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coches.swift; sourceTree = "<group>"; };
 		54A47EFA1EAA1C1100340E5E /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		54A47EFC1EAA3E6700340E5E /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		54AF9D751EC3755100973D1D /* error.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = error.css; sourceTree = "<group>"; };
+		54AF9D761EC3755100973D1D /* error.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
+		54AF9D771EC3755100973D1D /* Error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Error.png; sourceTree = "<group>"; };
 		54B521D01EBC8AA400EE5102 /* ChangeEmailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailView.swift; sourceTree = "<group>"; };
 		54C1CAF71EA81E5000B3EBF6 /* Extensiones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
 		54D338171EA29B5600B7AFB5 /* CarFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +143,7 @@
 			children = (
 				549199C71EAF85ED009347CC /* CarPrincipalView.swift */,
 				5463DD681EAFF0C100FDE2DA /* AddCarView.swift */,
+				543216A21EC4C2A400453761 /* TransferCoches.swift */,
 			);
 			name = Cars;
 			sourceTree = "<group>";
@@ -148,6 +157,16 @@
 				54B521D01EBC8AA400EE5102 /* ChangeEmailView.swift */,
 			);
 			name = Settings;
+			sourceTree = "<group>";
+		};
+		54AF9D7B1EC3755B00973D1D /* ErrorHTML */ = {
+			isa = PBXGroup;
+			children = (
+				54AF9D751EC3755100973D1D /* error.css */,
+				54AF9D761EC3755100973D1D /* error.html */,
+				54AF9D771EC3755100973D1D /* Error.png */,
+			);
+			name = ErrorHTML;
 			sourceTree = "<group>";
 		};
 		54C1CAF91EA81EFA00B3EBF6 /* ClasesVistas */ = {
@@ -186,6 +205,7 @@
 		54D338191EA29B5600B7AFB5 /* CarFinder */ = {
 			isa = PBXGroup;
 			children = (
+				54AF9D7B1EC3755B00973D1D /* ErrorHTML */,
 				542767911EABC7D300B341D1 /* MapHTML */,
 				54C1CAF91EA81EFA00B3EBF6 /* ClasesVistas */,
 				54F507E11EA7F3420041B476 /* Servidor */,
@@ -343,9 +363,12 @@
 				54D338251EA29B5600B7AFB5 /* LaunchScreen.storyboard in Resources */,
 				54D338221EA29B5600B7AFB5 /* Assets.xcassets in Resources */,
 				542767941EABC7E200B341D1 /* javascript.js in Resources */,
+				54AF9D7A1EC3755100973D1D /* Error.png in Resources */,
 				542767951EABC7E200B341D1 /* mapa.html in Resources */,
 				54E696A41EA7D081008E74A6 /* Logged.storyboard in Resources */,
 				54D338201EA29B5600B7AFB5 /* Main.storyboard in Resources */,
+				54AF9D781EC3755100973D1D /* error.css in Resources */,
+				54AF9D791EC3755100973D1D /* error.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +411,7 @@
 				54A47EFD1EAA3E6700340E5E /* MapView.swift in Sources */,
 				54D3381B1EA29B5600B7AFB5 /* AppDelegate.swift in Sources */,
 				549199CA1EAF87F0009347CC /* Coches.swift in Sources */,
+				543216A31EC4C2A400453761 /* TransferCoches.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

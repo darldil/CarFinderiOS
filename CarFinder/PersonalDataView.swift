@@ -52,7 +52,6 @@ class PersonalDataView: UITableViewController {
             texto = "Fecha Nacimiento: "
         }
         cell.textLabel?.text = texto + datos[indexPath.row]
-        cell.textLabel?.textColor = UIColor.white
         
         return cell
     }

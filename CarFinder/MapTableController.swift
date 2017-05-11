@@ -18,10 +18,9 @@ protocol ContainerToMaster {
 
 class MapTableController: UITableViewController {
     
-    private var datos : [String] = []
     private var numRows : Int = 0
     private var usuario : String = ""
-    private var matriculas : [String] = []
+    private var coches : [TransferCoches] = []
     private var lastSelection : IndexPath? = nil
     private var localizaciones : [String : (Any)] = [:]
     var containerToMaster:ContainerToMaster?
@@ -57,8 +56,7 @@ class MapTableController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        datos = []
-        matriculas = []
+        coches = []
         tableView.reloadData()
         self.loadCarsTable()
     }
@@ -70,7 +68,7 @@ class MapTableController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return self.datos.count
+        return self.coches.count
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -82,7 +80,7 @@ class MapTableController: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let con = Mapa ()
             // handle delete (by removing the data from your array and updating the tableview)
-            let matr = matriculas[indexPath.item]
+            let matr = coches[indexPath.item].getMatricula()
             tableView.isEditing = false
             con.eliminarPosicion(matricula: matr) {
                 respuesta in
@@ -144,9 +142,11 @@ class MapTableController: UITableViewController {
                     let datos : [[String:String]] = respuesta.value(forKey: "coches") as! [[String : String]]
                     
                     for temp in datos {
-                        let string : String = temp["marca"]! + " " + temp["modelo"]! + " - " + temp["matricula"]!
-                        self.datos.append(string)
-                        self.matriculas.append(temp["matricula"]!)
+                        let transfer : TransferCoches = TransferCoches ()
+                        transfer.setMatricula(matr: temp["matricula"]!)
+                        transfer.setModelo(mod:temp["modelo"]!)
+                        transfer.setMarca(marca: temp["marca"]!)
+                        self.coches.append(transfer)
                         self.numRows += 1
                     }
                     self.loadCarPositions()
@@ -216,8 +216,9 @@ class MapTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
         
-        if (datos.capacity != 0) {
-            cell.textLabel?.text = datos[indexPath.row]
+        if (coches.capacity != 0) {
+            cell.textLabel?.text = coches[indexPath.row].getMarca() + " " +
+            coches[indexPath.row].getModelo() + " - " + coches[indexPath.row].getMatricula()
         }
         
         return cell
@@ -228,12 +229,12 @@ class MapTableController: UITableViewController {
         if (lastSelection == nil) {
             containerToMaster?.matriculafromcontainer(containerData: "")
         } else {
-            let temp = matriculas[(lastSelection?.row)!]
+            let temp = coches[(lastSelection?.row)!].getMatricula()
             if let datos : [String : Any] = localizaciones[temp] as? [String : Any] {
                 containerToMaster?.matriculafromcontainer(containerData: temp, latitud: datos["latitud"] as! String, long: datos["longitud"] as! String, description: temp)
             }
             else {
-                containerToMaster?.matriculafromcontainer(containerData: matriculas[(lastSelection?.row)!]);
+                containerToMaster?.matriculafromcontainer(containerData: coches[(lastSelection?.row)!].getMatricula());
             }
         }
     }
