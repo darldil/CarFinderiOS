@@ -11,9 +11,9 @@ import UIKit
 class CarPrincipalView: UITableViewController {
     
     //private var datos : [String] = []
-    private var numRows : Int = 0
-    private var usuario : String = ""
-    private var coches : [TransferCoches] = []
+    internal var numRows : Int = 0
+    internal var usuario : String = ""
+    internal var coches : [TransferCoches] = []
     @IBOutlet weak var loadingActivity: UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -103,7 +103,7 @@ class CarPrincipalView: UITableViewController {
     }
 
     
-    private func cargar() {
+    internal func cargar() {
         let con = Coches ()
         //let alertController = showConnecting(mensaje: "Cargando...\n\n")
         let preferences = UserDefaults.standard
@@ -113,8 +113,10 @@ class CarPrincipalView: UITableViewController {
         con.cargarCoches(email: usuario) {
             respuesta in
             
-            self.loadingActivity.stopAnimating()
-            self.loadingActivity.isHidden = true
+            if(self.loadingActivity != nil) {
+                self.loadingActivity.stopAnimating()
+                self.loadingActivity.isHidden = true
+            }
             
             //Si el servidor ha fallado
             if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
@@ -147,7 +149,7 @@ class CarPrincipalView: UITableViewController {
         }
     }
     
-    private func reloadTable() {
+    internal func reloadTable() {
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
             return

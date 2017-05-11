@@ -842,11 +842,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "cargar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -874,11 +874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1034,11 +1034,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1050,11 +1050,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "cargar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1066,7 +1066,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "cargar()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarFinder/CarPrincipalView.swift"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
@@ -1082,11 +1098,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "cargar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1098,27 +1114,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "cargar()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1130,11 +1130,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "cargar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1258,11 +1258,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1274,11 +1274,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515452083.082941"
+            timestampString = "516213747.913748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1290,11 +1290,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515452083.082941"
+            timestampString = "516213747.913748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "tableView(_:didDeselectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1306,23 +1306,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515452083.082941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515452083.082941"
+            timestampString = "516213747.913748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "44"
@@ -1338,11 +1322,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515677174.205591"
+            timestampString = "516213747.913748"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarFinder/MapTableController.swift"
+            timestampString = "516214101.291103"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "MapTableController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1354,11 +1354,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515677174.205591"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "sendMatriculaToMap()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1386,11 +1386,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515677174.205591"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "sendMatriculaToMap()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1557,11 +1557,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "loadCarPositions()"
             landmarkType = "7">
             <Locations>
@@ -1605,11 +1605,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515452083.082941"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1621,59 +1621,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515452083.082941"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515452083.082941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "MapTableController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515452083.082941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "numberOfSections(in:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "loadCarPositions()"
             landmarkType = "7">
             <Locations>
@@ -1717,11 +1669,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "loadCarPositions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1733,11 +1685,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "loadCarPositions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1749,11 +1701,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "loadCarPositions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1765,11 +1717,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "loadCarPositions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1781,11 +1733,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "loadCarPositions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1797,11 +1749,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "loadCarPositions()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1877,11 +1829,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515677174.205591"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "234"
-            endingLineNumber = "234"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "sendMatriculaToMap()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1893,11 +1845,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515677174.205591"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "sendMatriculaToMap()"
             landmarkType = "7">
             <Locations>
@@ -1941,27 +1893,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "tableView(_:willDisplayHeaderView:forSection:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "updateCarLocation(matricula:lat:long:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1973,11 +1909,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/MapTableController.swift"
-            timestampString = "515454672.913936"
+            timestampString = "516214101.291103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "updateCarLocation(matricula:lat:long:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2117,12 +2053,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
+            timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "cargar()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarFinder/MapView.swift"
+            timestampString = "516214520.265965"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "locationManager(_:didUpdateLocations:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarFinder/MapView.swift"
+            timestampString = "516214708.933919"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "myLocationReload(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarFinder/MapView.swift"
+            timestampString = "516214743.775525"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

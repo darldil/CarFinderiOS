@@ -48,7 +48,7 @@ class ChangeEmailView: UIViewController {
                     self.dismiss(animated: true, completion: {
                         if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
                             
-                            let alert = UIAlertController(title: nil, message: "Ha completado su registro correctamente", preferredStyle: .alert)
+                            let alert = UIAlertController(title: nil, message: "Email modificado correctamente", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                                 defaults.set(self.emailTextField.text!, forKey: "user")
                                 self.navigationController?.popViewController(animated: true)

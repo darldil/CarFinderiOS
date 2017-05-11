@@ -16,11 +16,8 @@ protocol ContainerToMaster {
     func reloadMapPosition(lat : Double, lng: Double, description : String)
 }
 
-class MapTableController: UITableViewController {
+class MapTableController: CarPrincipalView {
     
-    private var numRows : Int = 0
-    private var usuario : String = ""
-    private var coches : [TransferCoches] = []
     private var lastSelection : IndexPath? = nil
     private var localizaciones : [String : (Any)] = [:]
     var containerToMaster:ContainerToMaster?
@@ -56,23 +53,6 @@ class MapTableController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        coches = []
-        tableView.reloadData()
-        self.loadCarsTable()
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // Return the number of sections.
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
-        return self.coches.count
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
     
     //Eliminar una posicion
@@ -90,7 +70,7 @@ class MapTableController: UITableViewController {
                     let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                         alert.dismiss(animated: true, completion: nil)
-                        self.loadCarsTable()
+                        super.cargar()
                     })
                     self.present(alert, animated: true)
                 }
@@ -112,47 +92,6 @@ class MapTableController: UITableViewController {
                 }
             }
             
-        }
-    }
-    
-    
-    private func loadCarsTable() {
-        let con = Coches ()
-        let preferences = UserDefaults.standard
-        
-        self.usuario = preferences.string(forKey: "user")!
-        
-        con.cargarCoches(email: usuario) {
-            respuesta in
-            
-            //Si el servidor ha fallado
-            if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                //alertController.dismiss(animated: true, completion: {
-                let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                    alert.dismiss(animated: true, completion: nil)
-                })
-                self.present(alert, animated: true)
-                //})
-            }
-            else {
-                
-                //Si los datos son correctos
-                if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
-                    let datos : [[String:String]] = respuesta.value(forKey: "coches") as! [[String : String]]
-                    
-                    for temp in datos {
-                        let transfer : TransferCoches = TransferCoches ()
-                        transfer.setMatricula(matr: temp["matricula"]!)
-                        transfer.setModelo(mod:temp["modelo"]!)
-                        transfer.setMarca(marca: temp["marca"]!)
-                        self.coches.append(transfer)
-                        self.numRows += 1
-                    }
-                    self.loadCarPositions()
-                    self.reloadTable()
-                }
-            }
         }
     }
     
@@ -196,32 +135,6 @@ class MapTableController: UITableViewController {
         temp["latitud"] = lat
         temp["longitud"] = long
         localizaciones[matricula] = temp
-    }
-    
-    private func reloadTable() {
-        
-        DispatchQueue.main.async(execute: {
-            self.tableView.reloadData()
-            return
-        })
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.white
-    }
-    
-    //Rellena las celdas y las añade a la tabla
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
-        
-        if (coches.capacity != 0) {
-            cell.textLabel?.text = coches[indexPath.row].getMarca() + " " +
-            coches[indexPath.row].getModelo() + " - " + coches[indexPath.row].getMatricula()
-        }
-        
-        return cell
     }
     
     func sendMatriculaToMap() {

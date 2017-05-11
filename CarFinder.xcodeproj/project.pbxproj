@@ -138,6 +138,13 @@
 			name = MapView;
 			sourceTree = "<group>";
 		};
+		543216A41EC4CDD700453761 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		549199C61EAF85D0009347CC /* Cars */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +196,7 @@
 				54D3382E1EA29B5700B7AFB5 /* CarFinderTests */,
 				54D338391EA29B5700B7AFB5 /* CarFinderUITests */,
 				54D338181EA29B5600B7AFB5 /* Products */,
+				543216A41EC4CDD700453761 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,6 +328,11 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = 27YD64ZSR9;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					54D3382A1EA29B5600B7AFB5 = {
 						CreatedOnToolsVersion = 8.3.1;
@@ -565,7 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 27YD64ZSR9;
 				INFOPLIST_FILE = CarFinder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ucm.fdi.CarFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -579,7 +592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 27YD64ZSR9;
 				INFOPLIST_FILE = CarFinder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ucm.fdi.CarFinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";

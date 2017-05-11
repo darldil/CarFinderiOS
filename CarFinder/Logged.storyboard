@@ -749,7 +749,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afk-g8-knJ">
                                                 <rect key="frame" x="130" y="212" width="60" height="30"/>
@@ -770,7 +770,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.70611804720000004" green="0.062661133709999997" blue="0.063863776620000007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -902,6 +902,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="0.26548072249999999" blue="0.2230723889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" red="1" green="0.26548072249999999" blue="0.2230723889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="1" green="0.2666666667" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="civ-k5-LTb" kind="relationship" relationship="viewControllers" id="FjS-ae-h1d"/>
@@ -990,5 +995,5 @@
         <image name="caricon" width="28" height="28"/>
         <image name="settingsicon" width="28" height="28"/>
     </resources>
-    <color key="tintColor" red="1" green="0.26548072249999999" blue="0.2230723889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="1" green="0.26666666666666666" blue="0.2196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

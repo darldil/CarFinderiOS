@@ -50,7 +50,7 @@ class ChangePasswordView: UIViewController {
                     self.dismiss(animated: true, completion: {
                         if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
                             
-                            let alert = UIAlertController(title: nil, message: "Ha completado su registro correctamente", preferredStyle: .alert)
+                            let alert = UIAlertController(title: nil, message: "Contraseña cambiada", preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                                 if(originalPass != nil) {
                                     defaults.set(self.pass1.text!, forKey: "pass")
