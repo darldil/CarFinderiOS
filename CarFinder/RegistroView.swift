@@ -153,32 +153,36 @@ class RegistroView: UIViewController {
                 respuesta in
                 
                 if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                    alertController.dismiss(animated: true, completion: {
-                        let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                            self.dismiss(animated: true, completion: nil)
-                        })
-                        self.present(alert, animated: true)
-                    })
-                }
-                else {
-                    self.dismiss(animated: true, completion: {
-                        if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
-                            
-                            let alert = UIAlertController(title: nil, message: "Ha completado su registro correctamente", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                self.navigationController?.popViewController(animated: true)
-                            })
-                            self.present(alert, animated: true)
-                        }
-                        else if (respuesta.value(forKey: "errorno") as! NSNumber != 404) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        alertController.dismiss(animated: true, completion: {
                             let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                                 self.dismiss(animated: true, completion: nil)
                             })
                             self.present(alert, animated: true)
-                        }
-                    })
+                        })
+                    }
+                }
+                else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.dismiss(animated: true, completion: {
+                            if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
+                            
+                                let alert = UIAlertController(title: nil, message: "Ha completado su registro correctamente", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                                    self.navigationController?.popViewController(animated: true)
+                                })
+                                self.present(alert, animated: true)
+                            }
+                            else if (respuesta.value(forKey: "errorno") as! NSNumber != 404) {
+                                let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                                    self.dismiss(animated: true, completion: nil)
+                                })
+                                self.present(alert, animated: true)
+                            }
+                        })
+                    }
                 }
             }
         }

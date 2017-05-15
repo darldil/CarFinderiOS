@@ -117,43 +117,47 @@ class ViewController: UIViewController {
                     respuesta in
                     //Si el servidor ha fallado
                     if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                        alertController.dismiss(animated: true, completion: {
-                            let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            alertController.dismiss(animated: true, completion: {
+                                let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                                 self.dismiss(animated: true, completion: nil)
+                                })
+                                self.present(alert, animated: true)
                             })
-                            self.present(alert, animated: true)
-                        })
+                        }
                     }
                     //Si la conexión se ha realizado correctamente
                     else {
-                    self.dismiss(animated: true, completion: {
-                        //Si los datos son correctos
-                        if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
-                            if (self.recordar.isOn) {
-                                preferences.set(pass, forKey: "pass")
-                            }
-                            preferences.set(respuesta.value(forKey: "email"), forKey: "user")
-                            preferences.set(respuesta.value(forKey: "nombre"), forKey: "name")
-                            preferences.set(respuesta.value(forKey: "apellidos"), forKey: "lastname")
-                            preferences.set(respuesta.value(forKey: "fecha"), forKey: "date")
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            self.dismiss(animated: true, completion: {
+                                //Si los datos son correctos
+                                if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
+                                    if (self.recordar.isOn) {
+                                        preferences.set(pass, forKey: "pass")
+                                    }
+                                    preferences.set(respuesta.value(forKey: "email"), forKey: "user")
+                                    preferences.set(respuesta.value(forKey: "nombre"), forKey: "name")
+                                    preferences.set(respuesta.value(forKey: "apellidos"), forKey: "lastname")
+                                    preferences.set(respuesta.value(forKey: "fecha"), forKey: "date")
                     
-                            let storyBoard : UIStoryboard = UIStoryboard(name: "Logged", bundle:nil)
+                                    let storyBoard : UIStoryboard = UIStoryboard(name: "Logged", bundle:nil)
                             
-                            let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Logged") as UIViewController
-                            self.present(nextViewController, animated:true, completion:nil)
-                        }
-                        else if (respuesta.value(forKey: "errorno") as! NSNumber != 404) {
-                            let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                self.dismiss(animated: true, completion: nil)
+                                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "Logged") as  UIViewController
+                                    self.present(nextViewController, animated:true, completion:nil)
+                                }
+                                else if (respuesta.value(forKey: "errorno") as! NSNumber != 404) {
+                                    let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
+                                    alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                                        self.dismiss(animated: true, completion: nil)
+                                    })
+                                    self.present(alert, animated: true)
+                                }
                             })
-                            self.present(alert, animated: true)
                         }
-                    })
+                    }
                 }
             }
-        }
     }
     
     func performOperation(alertToBeClosedOnFinish: UIAlertController) {
