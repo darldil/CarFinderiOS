@@ -18,12 +18,10 @@
 		547A81B61EC334E000DC2E57 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547A81B51EC334E000DC2E57 /* URLExtension.swift */; };
 		549199C81EAF85ED009347CC /* CarPrincipalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549199C71EAF85ED009347CC /* CarPrincipalView.swift */; };
 		549199CA1EAF87F0009347CC /* Coches.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549199C91EAF87F0009347CC /* Coches.swift */; };
-		54A47EFB1EAA1C1100340E5E /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A47EFA1EAA1C1100340E5E /* ChangePasswordView.swift */; };
 		54A47EFD1EAA3E6700340E5E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A47EFC1EAA3E6700340E5E /* MapView.swift */; };
 		54AF9D781EC3755100973D1D /* error.css in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D751EC3755100973D1D /* error.css */; };
 		54AF9D791EC3755100973D1D /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D761EC3755100973D1D /* error.html */; };
 		54AF9D7A1EC3755100973D1D /* Error.png in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D771EC3755100973D1D /* Error.png */; };
-		54B521D11EBC8AA400EE5102 /* ChangeEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B521D01EBC8AA400EE5102 /* ChangeEmailView.swift */; };
 		54C1CAF81EA81E5000B3EBF6 /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1CAF71EA81E5000B3EBF6 /* Extensiones.swift */; };
 		54D3381B1EA29B5600B7AFB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3381A1EA29B5600B7AFB5 /* AppDelegate.swift */; };
 		54D3381D1EA29B5600B7AFB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3381C1EA29B5600B7AFB5 /* ViewController.swift */; };
@@ -68,12 +66,10 @@
 		547A81B51EC334E000DC2E57 /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		549199C71EAF85ED009347CC /* CarPrincipalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarPrincipalView.swift; sourceTree = "<group>"; };
 		549199C91EAF87F0009347CC /* Coches.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coches.swift; sourceTree = "<group>"; };
-		54A47EFA1EAA1C1100340E5E /* ChangePasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		54A47EFC1EAA3E6700340E5E /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		54AF9D751EC3755100973D1D /* error.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = error.css; sourceTree = "<group>"; };
 		54AF9D761EC3755100973D1D /* error.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
 		54AF9D771EC3755100973D1D /* Error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Error.png; sourceTree = "<group>"; };
-		54B521D01EBC8AA400EE5102 /* ChangeEmailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeEmailView.swift; sourceTree = "<group>"; };
 		54C1CAF71EA81E5000B3EBF6 /* Extensiones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
 		54D338171EA29B5600B7AFB5 /* CarFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D3381A1EA29B5600B7AFB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,9 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				54F48BEB1EA95953009E4D49 /* SettingsView.swift */,
-				54A47EFA1EAA1C1100340E5E /* ChangePasswordView.swift */,
 				5425E0E31EACCF150008D013 /* PersonalDataView.swift */,
-				54B521D01EBC8AA400EE5102 /* ChangeEmailView.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -413,9 +407,7 @@
 				542DE2B41EB2941D004751ED /* Mapa.swift in Sources */,
 				547A81B61EC334E000DC2E57 /* URLExtension.swift in Sources */,
 				549199C81EAF85ED009347CC /* CarPrincipalView.swift in Sources */,
-				54B521D11EBC8AA400EE5102 /* ChangeEmailView.swift in Sources */,
 				5425E0E41EACCF150008D013 /* PersonalDataView.swift in Sources */,
-				54A47EFB1EAA1C1100340E5E /* ChangePasswordView.swift in Sources */,
 				54F507E51EA80A2F0041B476 /* RegistroView.swift in Sources */,
 				547970831EA6792700126B51 /* conexion.swift in Sources */,
 				542DE2B21EB268DD004751ED /* MapTableController.swift in Sources */,

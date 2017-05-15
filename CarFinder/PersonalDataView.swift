@@ -17,9 +17,9 @@ class PersonalDataView: UITableViewController {
         
         let defaults = UserDefaults.standard
         
-        datos.append(defaults.string(forKey: "user")!)
         datos.append(defaults.string(forKey: "name")!)
         datos.append(defaults.string(forKey: "lastname")!)
+        datos.append(defaults.string(forKey: "user")!)
         datos.append(defaults.string(forKey: "date")!)
     }
     
