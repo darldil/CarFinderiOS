@@ -65,6 +65,12 @@ class AddCarView: UIViewController {
                     alertController.dismiss(animated: true, completion: {
                         if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
                             self.navigationController?.popViewController(animated: true)
+                        } else {
+                            let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                                alert.dismiss(animated: true, completion: nil)
+                            })
+                            self.present(alert, animated: true)
                         }
                     })
                 }

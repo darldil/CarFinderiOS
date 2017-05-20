@@ -25,6 +25,7 @@ class MapTableController: CarPrincipalView {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        self.loadCarPositions()
     }
     
     override func didReceiveMemoryWarning() {
