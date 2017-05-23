@@ -49,7 +49,7 @@ class PersonalDataView: UITableViewController {
         } else if (indexPath.row == 2) {
             texto = "Email: "
         }else {
-            texto = "Fecha Nacimiento: "
+            texto = "Fecha de Nacimiento: "
         }
         cell.textLabel?.text = texto + datos[indexPath.row]
         

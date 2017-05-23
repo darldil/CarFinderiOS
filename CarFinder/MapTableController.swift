@@ -62,37 +62,52 @@ class MapTableController: CarPrincipalView {
             let con = Mapa ()
             // handle delete (by removing the data from your array and updating the tableview)
             let matr = coches[indexPath.item].getMatricula()
-            tableView.isEditing = false
-            con.eliminarPosicion(matricula: matr) {
-                respuesta in
-                
-                //Si el servidor ha fallado
-                if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                    let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                        alert.dismiss(animated: true, completion: nil)
-                        super.cargar()
-                    })
-                    self.present(alert, animated: true)
+            if (localizaciones[matr] == nil) {
+                let alert = UIAlertController(title: "Error", message: "El coche no está aparcado", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                    alert.dismiss(animated: true, completion: nil)
+                })
+                self.present(alert, animated: true)
+            }
+            else {
+                tableView.isEditing = false
+                if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
+                    cell.accessoryType = .none
                 }
-                //Si la conexión se ha realizado correctamente
-                else {
-                    //Si los datos no son correctos
-                    if (respuesta.value(forKey: "errorno") as! NSNumber != 0) {
+                con.eliminarPosicion(matricula: matr) {
+                    respuesta in
+                    //Si el servidor ha fallado
+                    if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
                         let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                             alert.dismiss(animated: true, completion: nil)
-                            self.reloadTable()
+                            super.cargar()
                         })
                         self.present(alert, animated: true)
                     }
+                    //Si la conexión se ha realizado correctamente
                     else {
-                        self.localizaciones[matr] = nil
-                        self.sendMatriculaToMap()
+                        //Si los datos no son correctos
+                        if (respuesta.value(forKey: "errorno") as! NSNumber != 0) {
+                            let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                                alert.dismiss(animated: true, completion: nil)
+                                self.reloadTable()
+                            })
+                            self.present(alert, animated: true)
+                        }
+                        else {
+                            let alertController = UIAlertController(title: nil, message: "Posición borrada", preferredStyle: .alert)
+                            self.present(alertController, animated: true)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                alertController.dismiss(animated: true, completion: nil)
+                                self.localizaciones[matr] = nil
+                                self.sendMatriculaToMap()
+                            }
+                        }
                     }
                 }
             }
-            
         }
     }
     

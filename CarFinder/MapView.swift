@@ -108,7 +108,13 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
                         self.present(alert, animated: true)
                     }
                     else {
-                        self.containerViewController?.updateCarLocation(matricula: self.matriculaSeleccionada, lat: String(self.currentLat), long: String (self.currentLong))
+                        let alertController = UIAlertController(title: nil, message: "Posición guardada", preferredStyle: .alert)
+                        self.present(alertController, animated: true)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                            alertController.dismiss(animated: true, completion: nil)
+                            self.containerViewController?.updateCarLocation(matricula: self.matriculaSeleccionada, lat: String(self.currentLat), long: String (self.currentLong))
+                            self.reloadMapPosition(lat : self.currentLat, lng: self.currentLong, description : self.matriculaSeleccionada)
+                        }
                     }
                 }
             }
