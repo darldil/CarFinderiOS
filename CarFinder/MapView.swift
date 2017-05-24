@@ -84,6 +84,8 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
             
         let request = URLRequest(url: URL!)
         WebBrowserView.loadRequest(request)
+        WebBrowserView.scrollView.isScrollEnabled = false
+        WebBrowserView.scrollView.bounces = false
     }
     
     @IBAction func savePosition(_ sender: Any) {
