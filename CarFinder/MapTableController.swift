@@ -39,10 +39,19 @@ class MapTableController: CarPrincipalView {
         
         if (lastSelection != nil && lastSelection?.row != indexPath.row) {
             tableView.cellForRow(at: lastSelection!)?.accessoryType = .none
+            lastSelection = indexPath
+            tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         }
         
-        lastSelection = indexPath
-        tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
+        else if (lastSelection != nil && lastSelection?.row == indexPath.row) {
+            tableView.cellForRow(at: lastSelection!)?.accessoryType = .none
+            lastSelection = nil
+        }
+        
+        else {
+            lastSelection = indexPath
+            tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
+        }
         sendMatriculaToMap()
     }
     
