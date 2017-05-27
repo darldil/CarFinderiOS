@@ -42,9 +42,9 @@ class Usuarios: conexion {
         }
     }
     
-    func modificarPass(email: String, password: String, finished: @escaping ((_ respuesta: NSDictionary)->Void)) {
+    func modificarPass(email: String, old_pass: String, new_pass: String, finished: @escaping ((_ respuesta: NSDictionary)->Void)) {
         
-        let datos = "action=modificarPassword&email="+email+"&password="+password;
+        let datos = "action=modificarPassword&email="+email+"&password="+old_pass+"&new_password="+new_pass;
         
         ejecutar(peticion: datos, tipo: self.usuarios) {
             respuesta in

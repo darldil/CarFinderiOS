@@ -92,7 +92,7 @@ class SettingsView: UITableViewController {
                         alertController.dismiss(animated: true, completion: {
                             let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                self.dismiss(animated: true, completion: nil)
+                                alert.dismiss(animated: true, completion: nil)
                             })
                             self.present(alert, animated: true)
                         })
@@ -111,7 +111,7 @@ class SettingsView: UITableViewController {
                             else if (respuesta.value(forKey: "errorno") as! NSNumber != 404) {
                                 let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                    self.dismiss(animated: true, completion: nil)
+                                    alert.dismiss(animated: true, completion: nil)
                                 })
                                 self.present(alert, animated: true)
                             }
@@ -122,7 +122,7 @@ class SettingsView: UITableViewController {
             else {
                 let alertController = UIAlertController(title:  "Error", message: "El email no es válido", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                    self.dismiss(animated: true, completion: nil)
+                    alertController.dismiss(animated: true, completion: nil)
                 })
                 self.present(alertController, animated: true)
                 
@@ -153,8 +153,9 @@ class SettingsView: UITableViewController {
         let saveAction = UIAlertAction(title: "Modificar", style: .destructive, handler: {
             alert -> Void in
             
-            let firstTextField = alertData.textFields![0] as UITextField
-            let secundTextField = alertData.textFields![1] as UITextField
+            let oldPassTextField = alertData.textFields![0] as UITextField
+            let firstTextField = alertData.textFields![1] as UITextField
+            let secundTextField = alertData.textFields![2] as UITextField
             let defaults = UserDefaults.standard
             let user = defaults.string(forKey: "user")
             let originalPass = defaults.string(forKey: "pass")
@@ -165,14 +166,14 @@ class SettingsView: UITableViewController {
                     DispatchQueue.main.async(execute: {
                         self.present(alertController, animated: true, completion: nil)
                     });
-                    con.modificarPass(email: user!, password: firstTextField.text!) {
+                    con.modificarPass(email: user!, old_pass: oldPassTextField.text!, new_pass: firstTextField.text!) {
                         respuesta in
                         
                         if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
                             alertController.dismiss(animated: true, completion: {
                                 let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                    self.dismiss(animated: true, completion: nil)
+                                    alert.dismiss(animated: true, completion: nil)
                                 })
                                 self.present(alert, animated: true)
                             })
@@ -193,7 +194,7 @@ class SettingsView: UITableViewController {
                                 else if (respuesta.value(forKey: "errorno") as! NSNumber != 404) {
                                     let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                                     alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                        self.dismiss(animated: true, completion: nil)
+                                        alert.dismiss(animated: true, completion: nil)
                                     })
                                     self.present(alert, animated: true)
                                 }
@@ -215,6 +216,11 @@ class SettingsView: UITableViewController {
             (action : UIAlertAction!) -> Void in
         })
         
+        alertData.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Introduce tu antigua contraseña"
+            textField.isSecureTextEntry = true
+            textField.tintColor = .red
+        }
         alertData.addTextField { (textField : UITextField!) -> Void in
             textField.placeholder = "Introduce tu nueva contraseña"
             textField.isSecureTextEntry = true
