@@ -20,7 +20,7 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    func showConnecting(mensaje : String) -> UIAlertController {
+    func mostrarCargando(mensaje : String) -> UIAlertController {
         let alertController = UIAlertController(title: nil, message: mensaje, preferredStyle: .alert)
         
         let spinnerIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle:     UIActivityIndicatorViewStyle.whiteLarge)
@@ -32,27 +32,4 @@ extension UIViewController {
         alertController.view.addSubview(spinnerIndicator)
         return alertController
     }
-    
-
-    /*func keyboardWillShow(sender: NSNotification) {
-        let userInfo = sender.userInfo
-        let keyboardSize: CGSize = (userInfo![UIKeyboardFrameBeginUserInfoKey] as! CGRect).size
-        let offset: CGSize = (userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect).size
-        
-        if keyboardSize.height == offset.height {
-            UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                self.view.frame.origin.y -= keyboardSize.height
-            })
-        } else {
-            UIView.animate(withDuration: 0.1, animations: { () -> Void in
-                self.view.frame.origin.y += keyboardSize.height - offset.height
-            })
-        }
-    }
-    
-    func keyboardWillBeHidden(notification: NSNotification){
-        let userInfo = notification.userInfo
-        let keyboardSize: CGSize = (userInfo![UIKeyboardFrameBeginUserInfoKey] as! CGRect).size
-        self.view.frame.origin.y += keyboardSize.height
-    }*/
 }

@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.hideKeyboardWhenTappedAround()
         
         let defaults = UserDefaults.standard
@@ -37,12 +36,11 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func autoIniciar(usuario: String, pass: String) {
         let con = Usuarios ()
-        let alertController = showConnecting(mensaje: "Conectando...\n\n")
+        let alertController = mostrarCargando(mensaje: "Conectando...\n\n")
         let preferences = UserDefaults.standard
         
         DispatchQueue.main.async(execute: {
@@ -106,7 +104,7 @@ class ViewController: UIViewController {
         }
         
         else {
-            let alertController = showConnecting(mensaje: "Conectando...\n\n")
+            let alertController = mostrarCargando(mensaje: "Conectando...\n\n")
             let preferences = UserDefaults.standard
             
             DispatchQueue.main.async(execute: {

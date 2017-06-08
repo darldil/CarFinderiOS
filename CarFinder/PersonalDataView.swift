@@ -24,12 +24,10 @@ class PersonalDataView: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // Return the number of sections.
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
         return 4
     }
     

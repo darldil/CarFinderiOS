@@ -27,9 +27,9 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
     override func viewDidLoad() {
         super.viewDidLoad()
         WebBrowserView.delegate = self
-        if (self.load()) {
+        if (self.cargar()) {
             locationDisabled = false
-            self.loadMap(lat: 0, lng: 0, descripcion: "vacio")
+            self.cargarMapa(lat: 0, lng: 0, descripcion: "vacio")
         }
     }
     
@@ -61,7 +61,7 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
         locationManager.stopUpdatingLocation()
     }
     
-    private func load() ->Bool {
+    private func cargar() ->Bool {
         locationManager.delegate = self
         let authorizationStatus = CLLocationManager.authorizationStatus()
         
@@ -69,7 +69,7 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
             locationManager.requestWhenInUseAuthorization()
             return false
         } else if (authorizationStatus == CLAuthorizationStatus.denied){
-            showError()
+            mostrarError()
             return false
         } else {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -79,7 +79,7 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
         return true
     }
     
-    private func showError() {
+    private func mostrarError() {
         let URL = Bundle.main.url(forResource: "error", withExtension: "html")
             
         let request = URLRequest(url: URL!)
@@ -114,8 +114,8 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
                         self.present(alertController, animated: true)
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             alertController.dismiss(animated: true, completion: nil)
-                            self.containerViewController?.updateCarLocation(matricula: self.matriculaSeleccionada, lat: String(self.currentLat), long: String (self.currentLong))
-                            self.reloadMapPosition(lat : self.currentLat, lng: self.currentLong, description : self.matriculaSeleccionada)
+                            self.containerViewController?.actualizarPosicionCoche(matricula: self.matriculaSeleccionada, lat: String(self.currentLat), long: String (self.currentLong))
+                            self.recargarPosicionMapa(lat : self.currentLat, lng: self.currentLong, description : self.matriculaSeleccionada)
                         }
                     }
                 }
@@ -125,9 +125,9 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
     
     @IBAction func myLocationReload(_ sender: Any) {
         if (!locationDisabled) {
-            loadMap(lat : currentLat, lng: currentLong, descripcion: "actual")
+            cargarMapa(lat : currentLat, lng: currentLong, descripcion: "actual")
         } else {
-            showError()
+            mostrarError()
         }
     }
     
@@ -145,11 +145,11 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
         if (lat > currentLat + 0.0005 || lat < currentLat - 0.0005 || long > currentLong + 0.0005 || long < currentLong - 0.0005) {
             currentLat = lat
             currentLong = long
-            loadMap(lat : lat, lng: long, descripcion: "actual")
+            cargarMapa(lat : lat, lng: long, descripcion: "actual")
         }
     }
     
-    private func loadMap(lat : Double, lng: Double, descripcion : String) {
+    private func cargarMapa(lat : Double, lng: Double, descripcion : String) {
         var URL = Bundle.main.url(forResource: "mapa", withExtension: "html")
         
         let URLwithparameters : String = (URL?.path)! + "?lat="+String(format:"%.4f", lat)+"&lng="+String(format:"%.4f", lng)+"&description="+descripcion
@@ -171,20 +171,20 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
             let long = request.url?.getQueryItemValueForKey(key: "lon")
             let matr = request.url?.getQueryItemValueForKey(key: "description")
             
-            let latitude: CLLocationDegrees = Double(lat!)!
-            let longitude: CLLocationDegrees = Double(long!)!
+            let latitud: CLLocationDegrees = Double(lat!)!
+            let longitud: CLLocationDegrees = Double(long!)!
             
-            let regionDistance:CLLocationDistance = 44
-            let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
-            let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
-            let options = [
-                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
-                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            let distancia:CLLocationDistance = 44
+            let coordenadas = CLLocationCoordinate2DMake(latitud, longitud)
+            let region = MKCoordinateRegionMakeWithDistance(coordenadas, distancia, distancia)
+            let opciones = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: region.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: region.span)
             ]
-            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
-            let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = matr
-            mapItem.openInMaps(launchOptions: options)
+            let puntoMapa = MKPlacemark(coordinate: coordenadas, addressDictionary: nil)
+            let itemMapa = MKMapItem(placemark: puntoMapa)
+            itemMapa.name = matr
+            itemMapa.openInMaps(launchOptions: opciones)
         }
         return true
     }
@@ -197,16 +197,16 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
     
     func matriculafromcontainer(containerData : String) {
         self.matriculaSeleccionada = containerData
-        loadMap(lat : currentLat, lng: currentLong, descripcion: "actual")
+        cargarMapa(lat : currentLat, lng: currentLong, descripcion: "actual")
     }
     
     func matriculafromcontainer(containerData : String, latitud : String, long : String, description : String) {
         self.matriculaSeleccionada = containerData
-        reloadMapPosition(lat : Double(latitud)!, lng: Double(long)!, description: description)
+        recargarPosicionMapa(lat : Double(latitud)!, lng: Double(long)!, description: description)
     }
     
-    func reloadMapPosition(lat : Double, lng: Double, description : String) {
-        loadMap(lat: lat, lng: lng, descripcion: description)
+    func recargarPosicionMapa(lat : Double, lng: Double, description : String) {
+        cargarMapa(lat: lat, lng: lng, descripcion: description)
     }
     
 }

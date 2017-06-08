@@ -12,13 +12,11 @@ class SettingsView: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //tableView.delegate = self
         tableView.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -27,7 +25,7 @@ class SettingsView: UITableViewController {
         
         let option : [String: Int] = ["section": indexPath.section, "row": indexPath.row]
         
-        menuPrefs(opt: option)
+        menu(opt: option)
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -35,7 +33,7 @@ class SettingsView: UITableViewController {
         header.textLabel?.textColor = UIColor.white
     }
     
-    private func menuPrefs(opt: [String: Int]) {
+    private func menu(opt: [String: Int]) {
         
         if (opt["section"] == 1 && opt["row"] == 0) {
             let alertController = UIAlertController(title: "Cerrar Sesión", message: "¿Seguro que desea cerrar la sesión?", preferredStyle: .alert)
@@ -58,30 +56,29 @@ class SettingsView: UITableViewController {
             alertController.addAction(okAction)
             alertController.addAction(cancelAction)
             
-            //Show alert view
             present(alertController, animated: true)
         }
         else if(opt["section"] == 0 && opt["row"] == 1) {
-            self.changeEmail()
+            self.cambiarEmail()
         }
         else if(opt["section"] == 0 && opt["row"] == 2) {
-            self.changePassword()
+            self.cambiarPassword()
         }
     }
     
-    private func changeEmail() {
+    private func cambiarEmail() {
         let alertData = UIAlertController(title: "Cambiar email", message: "Inserta el nuevo email", preferredStyle: .alert)
         
-        let saveAction = UIAlertAction(title: "Cambiar", style: .destructive, handler: {
+        let accionGuardar = UIAlertAction(title: "Cambiar", style: .destructive, handler: {
             alert -> Void in
             
             let firstTextField = alertData.textFields![0] as UITextField
             let defaults = UserDefaults.standard
             let user = defaults.string(forKey: "user")
             
-            if (self.checkEmailValid(email: firstTextField.text!)) {
+            if (self.comprobarEmailValido(email: firstTextField.text!)) {
                 let con = Usuarios ()
-                let alertController = self.showConnecting( mensaje: "Cambiando, espere...\n\n")
+                let alertController = self.mostrarCargando( mensaje: "Cambiando, espere...\n\n")
                 DispatchQueue.main.async(execute: {
                     self.present(alertController, animated: true, completion: nil)
                 });
@@ -131,7 +128,7 @@ class SettingsView: UITableViewController {
             
         })
         
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: {
+        let accionCancelar = UIAlertAction(title: "Cancelar", style: .default, handler: {
             (action : UIAlertAction!) -> Void in
             
         })
@@ -141,28 +138,28 @@ class SettingsView: UITableViewController {
             textField.tintColor = .red
         }
         
-        alertData.addAction(saveAction)
-        alertData.addAction(cancelAction)
+        alertData.addAction(accionGuardar)
+        alertData.addAction(accionCancelar)
         
         self.present(alertData, animated: true, completion: nil)
     }
     
-    private func changePassword() {
+    private func cambiarPassword() {
         let alertData = UIAlertController(title: "Cambiar contraseña", message: "", preferredStyle: .alert)
         
-        let saveAction = UIAlertAction(title: "Modificar", style: .destructive, handler: {
+        let accionGuardar = UIAlertAction(title: "Modificar", style: .destructive, handler: {
             alert -> Void in
             
             let oldPassTextField = alertData.textFields![0] as UITextField
             let firstTextField = alertData.textFields![1] as UITextField
-            let secundTextField = alertData.textFields![2] as UITextField
+            let secondTextField = alertData.textFields![2] as UITextField
             let defaults = UserDefaults.standard
             let user = defaults.string(forKey: "user")
             let originalPass = defaults.string(forKey: "pass")
             
-            if (self.checkPasswords(p1: firstTextField.text!, p2: secundTextField.text!)) {
+            if (self.comprobarPasswords(p1: firstTextField.text!, p2: secondTextField.text!)) {
                     let con = Usuarios ()
-                    let alertController = self.showConnecting( mensaje: "Cambiando, espere...\n\n")
+                    let alertController = self.mostrarCargando( mensaje: "Cambiando, espere...\n\n")
                     DispatchQueue.main.async(execute: {
                         self.present(alertController, animated: true, completion: nil)
                     });
@@ -212,7 +209,7 @@ class SettingsView: UITableViewController {
                 }
         })
         
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .default, handler: {
+        let accionCancelar = UIAlertAction(title: "Cancelar", style: .default, handler: {
             (action : UIAlertAction!) -> Void in
         })
         
@@ -232,22 +229,22 @@ class SettingsView: UITableViewController {
             textField.tintColor = .red
         }
         
-        alertData.addAction(saveAction)
-        alertData.addAction(cancelAction)
+        alertData.addAction(accionGuardar)
+        alertData.addAction(accionCancelar)
         
         self.present(alertData, animated: true, completion: nil)
     }
     
     
     
-    private func checkPasswords(p1 : String, p2 : String) -> Bool {
+    private func comprobarPasswords(p1 : String, p2 : String) -> Bool {
         if (p1 == p2) {
             return true;
         }
         return false;
     }
     
-    private func checkEmailValid(email : String) -> Bool {
+    private func comprobarEmailValido(email : String) -> Bool {
         
         if (email.contains("@")) {
             return true;

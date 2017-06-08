@@ -40,35 +40,31 @@ class CarPrincipalView: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //datos = []
-        //matriculas = []
         coches = []
         tableView.reloadData()
         self.cargar()
     }
     
+    //Devuelve el número de secciones
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // Return the number of sections.
         return 1
     }
     
+    //Devuelve el numero de filas de una sección
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
         return self.coches.count
     }
     
+    //Permite editar una tabla
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    //Eliminar un coche
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let con = Coches ()
-            // handle delete (by removing the data from your array and updating the tableview)
-            //let matr = matriculas[indexPath.item]
             let matr = coches[indexPath.item].getMatricula()
-            //datos.remove(at: indexPath.item)
-            //matriculas.remove(at: indexPath.item)
             coches.remove(at: indexPath.item)
             tableView.deleteRows(at: [indexPath], with: .fade)
             con.eliminarCoche(matricula: matr, email: self.usuario) {
@@ -90,22 +86,18 @@ class CarPrincipalView: UITableViewController {
                         let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                             alert.dismiss(animated: true, completion: nil)
-                            self.reloadTable()
+                            self.recargarTabla()
                         })
                         self.present(alert, animated: true)
                     }
                 }
             }
-            /*self.datos.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)*/
-            
         }
     }
 
     
     internal func cargar() {
         let con = Coches ()
-        //let alertController = showConnecting(mensaje: "Cargando...\n\n")
         let preferences = UserDefaults.standard
         
         self.usuario = preferences.string(forKey: "user")!
@@ -133,9 +125,6 @@ class CarPrincipalView: UITableViewController {
                     let datos : [[String:String]] = respuesta.value(forKey: "coches") as! [[String : String]]
         
                     for temp in datos {
-                        //let string : String = temp["marca"]! + " " + temp["modelo"]! + " - " + temp["matricula"]!
-                        //self.datos.append(string)
-                        //self.matriculas.append(temp["matricula"]!)
                         let transfer : TransferCoches = TransferCoches ()
                         transfer.setMatricula(matr: temp["matricula"]!)
                         transfer.setModelo(mod:temp["modelo"]!)
@@ -143,24 +132,18 @@ class CarPrincipalView: UITableViewController {
                         self.coches.append(transfer)
                         self.numRows += 1
                     }
-                    self.reloadTable()
+                    self.recargarTabla()
                 }
             }
         }
     }
     
-    internal func reloadTable() {
+    internal func recargarTabla() {
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
             return
         })
     }
-    
-    
-    /*override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.white
-    }*/
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
@@ -168,7 +151,6 @@ class CarPrincipalView: UITableViewController {
         if (coches.capacity != 0) {
             cell.textLabel?.text = coches[indexPath.row].getMarca() + " " +
                 coches[indexPath.row].getModelo() + " - " + coches[indexPath.row].getMatricula()
-            //cell.textLabel?.text = datos[indexPath.row]
         }
         
         return cell

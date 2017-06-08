@@ -18,7 +18,6 @@ class AddCarView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         self.hideKeyboardWhenTappedAround()
         let preferences = UserDefaults.standard
         self.usuario = preferences.string(forKey: "user")!
@@ -44,7 +43,7 @@ class AddCarView: UIViewController {
         }
         
         else {
-            let alertController = showConnecting( mensaje: "Guardando...\n\n")
+            let alertController = mostrarCargando( mensaje: "Guardando...\n\n")
             DispatchQueue.main.async(execute: {
                 self.present(alertController, animated: true, completion: nil)
             });

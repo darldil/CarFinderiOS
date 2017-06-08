@@ -22,7 +22,7 @@
 		54AF9D781EC3755100973D1D /* error.css in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D751EC3755100973D1D /* error.css */; };
 		54AF9D791EC3755100973D1D /* error.html in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D761EC3755100973D1D /* error.html */; };
 		54AF9D7A1EC3755100973D1D /* Error.png in Resources */ = {isa = PBXBuildFile; fileRef = 54AF9D771EC3755100973D1D /* Error.png */; };
-		54C1CAF81EA81E5000B3EBF6 /* Extensiones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1CAF71EA81E5000B3EBF6 /* Extensiones.swift */; };
+		54C1CAF81EA81E5000B3EBF6 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1CAF71EA81E5000B3EBF6 /* ViewControllerExtension.swift */; };
 		54D3381B1EA29B5600B7AFB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3381A1EA29B5600B7AFB5 /* AppDelegate.swift */; };
 		54D3381D1EA29B5600B7AFB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D3381C1EA29B5600B7AFB5 /* ViewController.swift */; };
 		54D338201EA29B5600B7AFB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54D3381E1EA29B5600B7AFB5 /* Main.storyboard */; };
@@ -70,7 +70,7 @@
 		54AF9D751EC3755100973D1D /* error.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = error.css; sourceTree = "<group>"; };
 		54AF9D761EC3755100973D1D /* error.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = error.html; sourceTree = "<group>"; };
 		54AF9D771EC3755100973D1D /* Error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Error.png; sourceTree = "<group>"; };
-		54C1CAF71EA81E5000B3EBF6 /* Extensiones.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensiones.swift; sourceTree = "<group>"; };
+		54C1CAF71EA81E5000B3EBF6 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		54D338171EA29B5600B7AFB5 /* CarFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54D3381A1EA29B5600B7AFB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		54D3381C1EA29B5600B7AFB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				54D338231EA29B5600B7AFB5 /* LaunchScreen.storyboard */,
 				54D338261EA29B5600B7AFB5 /* Info.plist */,
 				54E696A31EA7D081008E74A6 /* Logged.storyboard */,
-				54C1CAF71EA81E5000B3EBF6 /* Extensiones.swift */,
+				54C1CAF71EA81E5000B3EBF6 /* ViewControllerExtension.swift */,
 				547A81B51EC334E000DC2E57 /* URLExtension.swift */,
 			);
 			path = CarFinder;
@@ -402,7 +402,7 @@
 			files = (
 				54E696A21EA7CF91008E74A6 /* LoggedView.swift in Sources */,
 				54F48BEC1EA95953009E4D49 /* SettingsView.swift in Sources */,
-				54C1CAF81EA81E5000B3EBF6 /* Extensiones.swift in Sources */,
+				54C1CAF81EA81E5000B3EBF6 /* ViewControllerExtension.swift in Sources */,
 				54D3381D1EA29B5600B7AFB5 /* ViewController.swift in Sources */,
 				542DE2B41EB2941D004751ED /* Mapa.swift in Sources */,
 				547A81B61EC334E000DC2E57 /* URLExtension.swift in Sources */,

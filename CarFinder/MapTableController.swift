@@ -13,19 +13,19 @@ protocol ContainerToMaster {
     
     func matriculafromcontainer(containerData : String, latitud : String, long : String, description : String)
     
-    func reloadMapPosition(lat : Double, lng: Double, description : String)
+    func recargarPosicionMapa(lat : Double, lng: Double, description : String)
 }
 
 class MapTableController: CarPrincipalView {
     
-    private var lastSelection : IndexPath? = nil
+    private var ultimoSeleccionado : IndexPath? = nil
     private var localizaciones : [String : (Any)] = [:]
     var containerToMaster:ContainerToMaster?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        self.loadCarPositions()
+        self.cargarPosicionesCoches()
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,22 +37,22 @@ class MapTableController: CarPrincipalView {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if (lastSelection != nil && lastSelection?.row != indexPath.row) {
-            tableView.cellForRow(at: lastSelection!)?.accessoryType = .none
-            lastSelection = indexPath
+        if (ultimoSeleccionado != nil && ultimoSeleccionado?.row != indexPath.row) {
+            tableView.cellForRow(at: ultimoSeleccionado!)?.accessoryType = .none
+            ultimoSeleccionado = indexPath
             tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         }
         
-        else if (lastSelection != nil && lastSelection?.row == indexPath.row) {
-            tableView.cellForRow(at: lastSelection!)?.accessoryType = .none
-            lastSelection = nil
+        else if (ultimoSeleccionado != nil && ultimoSeleccionado?.row == indexPath.row) {
+            tableView.cellForRow(at: ultimoSeleccionado!)?.accessoryType = .none
+            ultimoSeleccionado = nil
         }
         
         else {
-            lastSelection = indexPath
+            ultimoSeleccionado = indexPath
             tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         }
-        sendMatriculaToMap()
+        enviarMatriculaMapa()
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -101,7 +101,7 @@ class MapTableController: CarPrincipalView {
                             let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
                             alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                                 alert.dismiss(animated: true, completion: nil)
-                                self.reloadTable()
+                                self.recargarTabla()
                             })
                             self.present(alert, animated: true)
                         }
@@ -111,7 +111,7 @@ class MapTableController: CarPrincipalView {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 alertController.dismiss(animated: true, completion: nil)
                                 self.localizaciones[matr] = nil
-                                self.sendMatriculaToMap()
+                                self.enviarMatriculaMapa()
                             }
                         }
                     }
@@ -120,7 +120,7 @@ class MapTableController: CarPrincipalView {
         }
     }
     
-    private func loadCarPositions() {
+    private func cargarPosicionesCoches() {
         let con = Mapa ()
         let preferences = UserDefaults.standard
         
@@ -155,24 +155,24 @@ class MapTableController: CarPrincipalView {
         }
     }
     
-    func updateCarLocation (matricula: String, lat: String, long: String) {
+    func actualizarPosicionCoche (matricula: String, lat: String, long: String) {
         var temp : [String : Any] = [:]
         temp["latitud"] = lat
         temp["longitud"] = long
         localizaciones[matricula] = temp
     }
     
-    func sendMatriculaToMap() {
+    func enviarMatriculaMapa() {
         
-        if (lastSelection == nil) {
+        if (ultimoSeleccionado == nil) {
             containerToMaster?.matriculafromcontainer(containerData: "")
         } else {
-            let temp = coches[(lastSelection?.row)!].getMatricula()
+            let temp = coches[(ultimoSeleccionado?.row)!].getMatricula()
             if let datos : [String : Any] = localizaciones[temp] as? [String : Any] {
                 containerToMaster?.matriculafromcontainer(containerData: temp, latitud: datos["latitud"] as! String, long: datos["longitud"] as! String, description: temp)
             }
             else {
-                containerToMaster?.matriculafromcontainer(containerData: coches[(lastSelection?.row)!].getMatricula());
+                containerToMaster?.matriculafromcontainer(containerData: coches[(ultimoSeleccionado?.row)!].getMatricula());
             }
         }
     }

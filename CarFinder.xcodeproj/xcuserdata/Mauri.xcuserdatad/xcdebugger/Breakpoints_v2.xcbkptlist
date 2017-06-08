@@ -409,54 +409,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CarFinder/Extensiones.swift"
-            timestampString = "517261741.515534"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "UIViewController"
-            landmarkType = "4">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/Extensiones.swift"
-            timestampString = "517261741.515534"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "UIViewController"
-            landmarkType = "4">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/Extensiones.swift"
-            timestampString = "517261741.515534"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "UIViewController"
-            landmarkType = "4">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CarFinder/RegistroView.swift"
             timestampString = "515675834.181958"
             startingColumnNumber = "9223372036854775807"
@@ -857,22 +809,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516213865.800835"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "tableView(_:cellForRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CarFinder/Coches.swift"
             timestampString = "514821398.285251"
             startingColumnNumber = "9223372036854775807"
@@ -1053,40 +989,8 @@
             timestampString = "516213865.800835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
-            landmarkName = "cargar()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516213865.800835"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "134"
             endingLineNumber = "134"
-            landmarkName = "cargar()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516213865.800835"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
             landmarkName = "cargar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1135,22 +1039,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
             endingLineNumber = "78"
-            landmarkName = "tableView(_:commit:forRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarFinder/CarPrincipalView.swift"
-            timestampString = "516212830.089543"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1327,7 +1215,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
             endingLineNumber = "168"
-            landmarkName = "sendMatriculaToMap()"
+            landmarkName = "enviarMatriculaMapa()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1359,7 +1247,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "174"
             endingLineNumber = "174"
-            landmarkName = "sendMatriculaToMap()"
+            landmarkName = "enviarMatriculaMapa()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1530,7 +1418,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
             endingLineNumber = "129"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1594,7 +1482,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
             endingLineNumber = "128"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -1642,7 +1530,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
             endingLineNumber = "143"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1658,7 +1546,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "133"
             endingLineNumber = "133"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1674,7 +1562,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
             endingLineNumber = "141"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1690,7 +1578,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "140"
             endingLineNumber = "140"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1706,7 +1594,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
             endingLineNumber = "149"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1722,7 +1610,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
             endingLineNumber = "146"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1802,7 +1690,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "173"
             endingLineNumber = "173"
-            landmarkName = "sendMatriculaToMap()"
+            landmarkName = "enviarMatriculaMapa()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1818,7 +1706,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "171"
             endingLineNumber = "171"
-            landmarkName = "sendMatriculaToMap()"
+            landmarkName = "enviarMatriculaMapa()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1834,7 +1722,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
             endingLineNumber = "160"
-            landmarkName = "updateCarLocation(matricula:lat:long:)"
+            landmarkName = "actualizarPosicionCoche(matricula:lat:long:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1850,7 +1738,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "162"
             endingLineNumber = "162"
-            landmarkName = "updateCarLocation(matricula:lat:long:)"
+            landmarkName = "actualizarPosicionCoche(matricula:lat:long:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2058,7 +1946,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
             endingLineNumber = "40"
-            landmarkName = "menuPrefs(opt:)"
+            landmarkName = "menu(opt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2074,7 +1962,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "menuPrefs(opt:)"
+            landmarkName = "menu(opt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2090,7 +1978,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "91"
             endingLineNumber = "91"
-            landmarkName = "changeEmail()"
+            landmarkName = "cambiarEmail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2106,7 +1994,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
             endingLineNumber = "77"
-            landmarkName = "changeEmail()"
+            landmarkName = "cambiarEmail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2122,7 +2010,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
             endingLineNumber = "78"
-            landmarkName = "changeEmail()"
+            landmarkName = "cambiarEmail()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2170,7 +2058,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "167"
             endingLineNumber = "167"
-            landmarkName = "sendMatriculaToMap()"
+            landmarkName = "enviarMatriculaMapa()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2186,7 +2074,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "125"
             endingLineNumber = "125"
-            landmarkName = "loadCarPositions()"
+            landmarkName = "cargarPosicionesCoches()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2218,7 +2106,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"
             endingLineNumber = "163"
-            landmarkName = "changePassword()"
+            landmarkName = "cambiarPassword()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2234,7 +2122,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "169"
             endingLineNumber = "169"
-            landmarkName = "changePassword()"
+            landmarkName = "cambiarPassword()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -2282,7 +2170,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "172"
             endingLineNumber = "172"
-            landmarkName = "changePassword()"
+            landmarkName = "cambiarPassword()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2298,7 +2186,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "170"
             endingLineNumber = "170"
-            landmarkName = "changePassword()"
+            landmarkName = "cambiarPassword()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

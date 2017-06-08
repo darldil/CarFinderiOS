@@ -123,11 +123,11 @@ class RegistroView: UIViewController {
         let email: String = self.email.text!
         let pass1: String = self.pass1.text!
         let pass2: String = self.pass2.text!
-        let name: String = self.nameText.text!
-        let lastname: String = self.lastnameText.text!
-        let date: String = self.dateTextField.text!
+        let nombre: String = self.nameText.text!
+        let apellidos: String = self.lastnameText.text!
+        let fecha: String = self.dateTextField.text!
         
-        if (email == "" || pass1 == "" || pass2 == "" || name == "" || lastname == "" || date == "") {
+        if (email == "" || pass1 == "" || pass2 == "" || nombre == "" || apellidos == "" || fecha == "") {
             let alertController = UIAlertController(title:  "Error", message: "Los campos están vacíos", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                 self.dismiss(animated: true, completion: nil)
@@ -144,12 +144,12 @@ class RegistroView: UIViewController {
         }
             
         else {
-            let alertController = showConnecting( mensaje: "Registrando...\n\n")
+            let alertController = mostrarCargando( mensaje: "Registrando...\n\n")
             DispatchQueue.main.async(execute: {
                 self.present(alertController, animated: true, completion: nil)
             });
             
-            con.registrarUsuario(email: email, pass: pass1, name: name, last: lastname, date: date) {
+            con.registrarUsuario(email: email, pass: pass1, name: nombre, last: apellidos, date: fecha) {
                 respuesta in
                 
                 if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
