@@ -1,0 +1,69 @@
+
+/* Class = "UILabel"; text = "Cambiar email"; ObjectID = "3JZ-ZM-Azi"; */
+"3JZ-ZM-Azi.text" = "Change email";
+
+/* Class = "UILabel"; text = "Cambiar contraseña"; ObjectID = "4Mx-wp-htw"; */
+"4Mx-wp-htw.text" = "Change password";
+
+/* Class = "UITableViewController"; title = "Datos personales"; ObjectID = "8RF-Ws-Fcq"; */
+"8RF-Ws-Fcq.title" = "Personal data";
+
+/* Class = "UIBarButtonItem"; title = "Volver"; ObjectID = "CHW-9D-SX3"; */
+"CHW-9D-SX3.title" = "Back";
+
+/* Class = "UILabel"; text = "Ver mis datos"; ObjectID = "GvD-rH-gPw"; */
+"GvD-rH-gPw.text" = "View my data";
+
+/* Class = "UITextField"; placeholder = "Modelo"; ObjectID = "O5E-XS-tpH"; */
+"O5E-XS-tpH.placeholder" = "Model";
+
+/* Class = "UITabBarItem"; title = "Ajustes"; ObjectID = "OXv-zF-XjG"; */
+"OXv-zF-XjG.title" = "Settings";
+
+/* Class = "UITabBarItem"; title = "Mapa"; ObjectID = "PLh-gQ-1d0"; */
+"PLh-gQ-1d0.title" = "Map";
+
+/* Class = "UITabBarItem"; title = "Coche"; ObjectID = "RMk-RE-qcj"; */
+"RMk-RE-qcj.title" = "Car";
+
+/* Class = "UINavigationItem"; title = "Agregar"; ObjectID = "SXK-JC-JWn"; */
+"SXK-JC-JWn.title" = "Add";
+
+/* Class = "UIButton"; normalTitle = "Aceptar"; ObjectID = "Sk5-gP-9sg"; */
+"Sk5-gP-9sg.normalTitle" = "Ok";
+
+/* Class = "UILabel"; text = "Cerrar Sesión"; ObjectID = "Var-us-xsE"; */
+"Var-us-xsE.text" = "Logout";
+
+/* Class = "UINavigationItem"; title = "Car Finder"; ObjectID = "ZTV-iL-KJB"; */
+"ZTV-iL-KJB.title" = "Car Finder";
+
+/* Class = "UINavigationItem"; title = "Coches"; ObjectID = "aU2-cM-bfN"; */
+"aU2-cM-bfN.title" = "Cars";
+
+/* Class = "UITabBarController"; title = "Car Finder"; ObjectID = "ald-wP-WYR"; */
+"ald-wP-WYR.title" = "Car Finder";
+
+/* Class = "UITextField"; placeholder = "Marca"; ObjectID = "faq-CO-Fhl"; */
+"faq-CO-Fhl.placeholder" = "Brand";
+
+/* Class = "UIBarButtonItem"; title = "Localizacion"; ObjectID = "iae-lZ-5VI"; */
+"iae-lZ-5VI.title" = "Location";
+
+/* Class = "UINavigationItem"; title = "Datos Personales"; ObjectID = "miX-ma-myi"; */
+"miX-ma-myi.title" = "Personal data";
+
+/* Class = "UITableViewSection"; headerTitle = "SESION"; ObjectID = "n4y-D5-b9f"; */
+"n4y-D5-b9f.headerTitle" = "SESSION";
+
+/* Class = "UINavigationController"; title = "Coches"; ObjectID = "p13-1r-xDK"; */
+"p13-1r-xDK.title" = "Cars";
+
+/* Class = "UITableViewSection"; headerTitle = "DATOS PERSONALES"; ObjectID = "pMq-q5-vmv"; */
+"pMq-q5-vmv.headerTitle" = "PERSONAL DATA";
+
+/* Class = "UINavigationItem"; title = "Ajustes"; ObjectID = "ugz-m6-dm2"; */
+"ugz-m6-dm2.title" = "Settings";
+
+/* Class = "UITextField"; placeholder = "Matricula"; ObjectID = "uvE-Mi-Hxz"; */
+"uvE-Mi-Hxz.placeholder" = "Car Number Plate ";

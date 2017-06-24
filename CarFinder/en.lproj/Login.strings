@@ -1,0 +1,51 @@
+
+/* Class = "UIButton"; normalTitle = "Conectar"; ObjectID = "40T-KW-3mH"; */
+"40T-KW-3mH.normalTitle" = "Connect";
+
+/* Class = "UINavigationController"; title = "Car Finder"; ObjectID = "4Wd-cd-iYl"; */
+"4Wd-cd-iYl.title" = "Car Finder";
+
+/* Class = "UIButton"; normalTitle = "Registrar"; ObjectID = "763-vT-aKf"; */
+"763-vT-aKf.normalTitle" = "Register";
+
+/* Class = "UITextField"; placeholder = "Apellidos"; ObjectID = "7jZ-LV-pXj"; */
+"7jZ-LV-pXj.placeholder" = "Lastname";
+
+/* Class = "UILabel"; text = "No tienes cuenta? Crea una pulsando aquí"; ObjectID = "EOg-FS-8wN"; */
+"EOg-FS-8wN.text" = "You don't have an account? Create one by clicking here";
+
+/* Class = "UITextField"; placeholder = "Usuario"; ObjectID = "Gqz-PY-ptT"; */
+"Gqz-PY-ptT.placeholder" = "User";
+
+/* Class = "UITextField"; placeholder = "Fecha Nacimiento"; ObjectID = "SiC-s2-uJC"; */
+"SiC-s2-uJC.placeholder" = "Birth date";
+
+/* Class = "UILabel"; text = "Inserte sus datos"; ObjectID = "WKK-Rz-la7"; */
+"WKK-Rz-la7.text" = "Insert your personal data";
+
+/* Class = "UITextField"; placeholder = "Contraseña"; ObjectID = "Y2M-I6-bp9"; */
+"Y2M-I6-bp9.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Aceptar"; ObjectID = "Ys6-ID-h7q"; */
+"Ys6-ID-h7q.normalTitle" = "Ok";
+
+/* Class = "UILabel"; text = "Recordar contraseña"; ObjectID = "c1A-k6-Qj1"; */
+"c1A-k6-Qj1.text" = "Remember password";
+
+/* Class = "UITextField"; placeholder = "Repita contraseña"; ObjectID = "eP1-JN-yKQ"; */
+"eP1-JN-yKQ.placeholder" = "Retype password";
+
+/* Class = "UITextField"; placeholder = "Nombre"; ObjectID = "lS1-8Q-Hlm"; */
+"lS1-8Q-Hlm.placeholder" = "Name";
+
+/* Class = "UINavigationItem"; title = "Iniciar Sesión"; ObjectID = "r4f-5h-2ba"; */
+"r4f-5h-2ba.title" = "Login";
+
+/* Class = "UIViewController"; title = "Registro"; ObjectID = "uRb-an-djj"; */
+"uRb-an-djj.title" = "Register";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "yI5-dU-Q1F"; */
+"yI5-dU-Q1F.placeholder" = "Email";
+
+/* Class = "UITextField"; placeholder = "Contraseña"; ObjectID = "zpz-Ii-6ga"; */
+"zpz-Ii-6ga.placeholder" = "Password";

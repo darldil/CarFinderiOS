@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     //MARK: Properties
     
@@ -36,6 +36,22 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func comprobarPasswords(p1 : String) -> Bool {
+        if (p1.characters.count > 4) {
+            return true;
+        }
+        return false;
+    }
+    
+    private func comprobarEmailValido(email : String) -> Bool {
+        
+        if (email.contains("@")) {
+            return true;
+        }
+        
+        return false;
     }
     
     private func autoIniciar(usuario: String, pass: String) {
@@ -101,8 +117,22 @@ class ViewController: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             })
             self.present(alertController, animated: true)
+        } else if (!self.comprobarEmailValido(email: usuario)) {
+            let alertController = UIAlertController(title: "Error", message: "El email no es válido", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                self.dismiss(animated: true, completion: nil)
+            })
+            self.present(alertController, animated: true)
         }
-        
+            
+        else if (!self.comprobarPasswords(p1: pass)) {
+            let alertController = UIAlertController(title: "Error", message: "La contraseña es muy corta", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                self.dismiss(animated: true, completion: nil)
+            })
+            self.present(alertController, animated: true)
+        }
+            
         else {
             let alertController = mostrarCargando(mensaje: "Conectando...\n\n")
             let preferences = UserDefaults.standard

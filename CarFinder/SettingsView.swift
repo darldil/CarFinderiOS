@@ -236,9 +236,8 @@ class SettingsView: UITableViewController {
     }
     
     
-    
     private func comprobarPasswords(p1 : String, p2 : String) -> Bool {
-        if (p1 == p2) {
+        if (p1 == p2 && p1.characters.count > 4) {
             return true;
         }
         return false;

@@ -95,7 +95,7 @@ class CarPrincipalView: UITableViewController {
         }
     }
 
-    
+    //Carga los coches del usuario
     internal func cargar() {
         let con = Coches ()
         let preferences = UserDefaults.standard
@@ -106,8 +106,9 @@ class CarPrincipalView: UITableViewController {
             respuesta in
             
             if(self.loadingActivity != nil) {
-                self.loadingActivity.stopAnimating()
-                self.loadingActivity.isHidden = true
+                DispatchQueue.main.async(execute: {
+                    self.loadingActivity.stopAnimating()
+                })
             }
             
             //Si el servidor ha fallado

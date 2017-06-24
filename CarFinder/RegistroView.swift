@@ -118,6 +118,22 @@ class RegistroView: UIViewController {
         scrollView.scrollIndicatorInsets.bottom += changeInHeight
     }
     
+    private func comprobarPasswords(p1 : String, p2 : String) -> Bool {
+        if (p1 == p2 && p1.characters.count > 4) {
+            return true;
+        }
+        return false;
+    }
+    
+    private func comprobarEmailValido(email : String) -> Bool {
+        
+        if (email.contains("@")) {
+            return true;
+        }
+        
+        return false;
+    }
+    
     @IBAction func registrar(_ sender: Any) {
         let con = Usuarios ()
         let email: String = self.email.text!
@@ -135,8 +151,16 @@ class RegistroView: UIViewController {
             self.present(alertController, animated: true)
         }
             
-        else if (pass1 != pass2) {
-            let alertController = UIAlertController(title:  "Error", message: "Las contraseñas no coinciden", preferredStyle: .alert)
+        else if (!self.comprobarPasswords(p1: pass1, p2: pass2)) {
+            let alertController = UIAlertController(title:  "Error", message: "Las contraseñas no coinciden o es demasiado corta", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+                self.dismiss(animated: true, completion: nil)
+            })
+            self.present(alertController, animated: true)
+        }
+            
+        else if (!self.comprobarEmailValido(email: email)) {
+            let alertController = UIAlertController(title:  "Error", message: "El email no es valido", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                 self.dismiss(animated: true, completion: nil)
             })
