@@ -47,9 +47,6 @@
 /* Class = "UITextField"; placeholder = "Marca"; ObjectID = "faq-CO-Fhl"; */
 "faq-CO-Fhl.placeholder" = "Brand";
 
-/* Class = "UIBarButtonItem"; title = "Localizacion"; ObjectID = "iae-lZ-5VI"; */
-"iae-lZ-5VI.title" = "Location";
-
 /* Class = "UINavigationItem"; title = "Datos Personales"; ObjectID = "miX-ma-myi"; */
 "miX-ma-myi.title" = "Personal data";
 

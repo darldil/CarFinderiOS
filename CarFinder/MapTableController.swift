@@ -25,7 +25,6 @@ class MapTableController: CarPrincipalView {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        self.cargarPosicionesCoches()
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,6 +62,7 @@ class MapTableController: CarPrincipalView {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.cargarPosicionesCoches()
     }
     
     //Eliminar una posicion
@@ -95,7 +95,15 @@ class MapTableController: CarPrincipalView {
                         }
                         else {
                             let alertController = UIAlertController(title: nil, message: "Posición borrada", preferredStyle: .alert)
-                            self.present(alertController, animated: true)
+                            DispatchQueue.main.async(execute: {
+                                if self.presentedViewController == nil {
+                                    self.present(alertController, animated: true, completion: nil)
+                                } else{
+                                    self.dismiss(animated: false) { () -> Void in
+                                        self.present(alertController, animated: true, completion: nil)
+                                    }
+                                }
+                            })
                             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                 alertController.dismiss(animated: true, completion: nil)
                                 self.localizaciones[matr] = nil

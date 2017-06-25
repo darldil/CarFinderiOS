@@ -116,6 +116,7 @@ class LoginViewController: UIViewController {
                             //En caso contrario
                             else if (respuesta.value(forKey: "errorno") as! NSNumber != 404) {
                                 self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
+                                preferences.removeObject(forKey: "pass")
                             }
                         })
                     }

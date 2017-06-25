@@ -116,7 +116,15 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
                     //Posición guardada con éxito
                     else {
                         let alertController = UIAlertController(title: nil, message: "Posición guardada", preferredStyle: .alert)
-                        self.present(alertController, animated: true)
+                        DispatchQueue.main.async(execute: {
+                            if self.presentedViewController == nil {
+                                self.present(alertController, animated: true, completion: nil)
+                            } else{
+                                self.dismiss(animated: false) { () -> Void in
+                                    self.present(alertController, animated: true, completion: nil)
+                                }
+                            }
+                        })
                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                             alertController.dismiss(animated: true, completion: nil)
                             self.containerViewController?.actualizarPosicionCoche(matricula: self.matriculaSeleccionada, lat: String(self.latitudActual), long: String (self.longitudActual))
@@ -127,15 +135,6 @@ class MapView: UIViewController, CLLocationManagerDelegate, UIWebViewDelegate, C
             }
         } else {
             self.mostrarError(mess: "No puede guardar la localización porque la aplicación no tiene permisos para conocer esta")
-        }
-    }
-    
-    //Recarga la localización actual a petición del usuario
-    @IBAction func myLocationReload(_ sender: Any) {
-        if (!localizacionDesactivada) {
-            cargarMapa(lat : latitudActual, lng: longitudActual, descripcion: "actual")
-        } else {
-            mostrarError()
         }
     }
     

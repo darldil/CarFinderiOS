@@ -210,12 +210,6 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Car Finder" id="ZTV-iL-KJB">
-                        <barButtonItem key="leftBarButtonItem" title="Localización" id="iae-lZ-5VI">
-                            <color key="tintColor" red="1" green="0.26548072249999999" blue="0.2230723889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="myLocationReload:" destination="7wU-lp-qku" id="URz-KD-Vvh"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ozn-Gj-TEi">
                             <color key="tintColor" red="1" green="0.26548072249999999" blue="0.2230723889" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
