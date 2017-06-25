@@ -9,6 +9,7 @@
 import Foundation
 
 extension URL {
+    //Obtiene los items contenidos en una query
     func getQueryItemValueForKey(key: String) -> String? {
         guard let components = NSURLComponents(url: self, resolvingAgainstBaseURL: false) else {
             return nil

@@ -13,7 +13,7 @@ protocol ContainerToMaster {
     
     func matriculafromcontainer(containerData : String, latitud : String, long : String, description : String)
     
-    func recargarPosicionMapa(lat : Double, lng: Double, description : String)
+    func cargarMapa(lat : Double, lng: Double, descripcion : String)
 }
 
 class MapTableController: CarPrincipalView {
@@ -30,19 +30,18 @@ class MapTableController: CarPrincipalView {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //Cuando selecciono una fila
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
+        //Si hay un coche seleccionado y es distinto del coche que acaba de pulsar el usuario
         if (ultimoSeleccionado != nil && ultimoSeleccionado?.row != indexPath.row) {
             tableView.cellForRow(at: ultimoSeleccionado!)?.accessoryType = .none
             ultimoSeleccionado = indexPath
             tableView.cellForRow(at: indexPath as IndexPath)?.accessoryType = .checkmark
         }
-        
+        //Si hay un coche seleccionado y este es el coche que acaba de pulsar el usuario
         else if (ultimoSeleccionado != nil && ultimoSeleccionado?.row == indexPath.row) {
             tableView.cellForRow(at: ultimoSeleccionado!)?.accessoryType = .none
             ultimoSeleccionado = nil
@@ -55,6 +54,7 @@ class MapTableController: CarPrincipalView {
         enviarMatriculaMapa()
     }
     
+    //Cuando se pulsa un coche
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath as IndexPath) {
             cell.accessoryType = .none
@@ -72,11 +72,7 @@ class MapTableController: CarPrincipalView {
             // handle delete (by removing the data from your array and updating the tableview)
             let matr = coches[indexPath.item].getMatricula()
             if (localizaciones[matr] == nil) {
-                let alert = UIAlertController(title: "Error", message: "El coche no está aparcado", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                    alert.dismiss(animated: true, completion: nil)
-                })
-                self.present(alert, animated: true)
+                self.mostrarError(mess: "El coche no está aparcado")
             }
             else {
                 tableView.isEditing = false
@@ -87,23 +83,15 @@ class MapTableController: CarPrincipalView {
                     respuesta in
                     //Si el servidor ha fallado
                     if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                        let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                            alert.dismiss(animated: true, completion: nil)
-                            super.cargar()
-                        })
-                        self.present(alert, animated: true)
+                        self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
+                        super.cargar()
                     }
                     //Si la conexión se ha realizado correctamente
                     else {
                         //Si los datos no son correctos
                         if (respuesta.value(forKey: "errorno") as! NSNumber != 0) {
-                            let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                alert.dismiss(animated: true, completion: nil)
-                                self.recargarTabla()
-                            })
-                            self.present(alert, animated: true)
+                            self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
+                            self.recargarTabla()
                         }
                         else {
                             let alertController = UIAlertController(title: nil, message: "Posición borrada", preferredStyle: .alert)
@@ -120,6 +108,7 @@ class MapTableController: CarPrincipalView {
         }
     }
     
+    //Carga las posiciones de todos los coches
     private func cargarPosicionesCoches() {
         let con = Mapa ()
         let preferences = UserDefaults.standard
@@ -131,11 +120,7 @@ class MapTableController: CarPrincipalView {
             
             //Si el servidor ha fallado
             if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                    alert.dismiss(animated: true, completion: nil)
-                })
-                self.present(alert, animated: true)
+                self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
             }
             else {
             
@@ -155,14 +140,16 @@ class MapTableController: CarPrincipalView {
         }
     }
     
-    func actualizarPosicionCoche (matricula: String, lat: String, long: String) {
+    //Actualiza la posición de un coche
+    internal func actualizarPosicionCoche (matricula: String, lat: String, long: String) {
         var temp : [String : Any] = [:]
         temp["latitud"] = lat
         temp["longitud"] = long
         localizaciones[matricula] = temp
     }
     
-    func enviarMatriculaMapa() {
+    //Función que envia los datos del vehículo a la clase MapView para mostrarlos en el mapa
+    private func enviarMatriculaMapa() {
         
         if (ultimoSeleccionado == nil) {
             containerToMaster?.matriculafromcontainer(containerData: "")

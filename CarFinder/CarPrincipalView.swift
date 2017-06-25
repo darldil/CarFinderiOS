@@ -10,7 +10,6 @@ import UIKit
 
 class CarPrincipalView: UITableViewController {
     
-    //private var datos : [String] = []
     internal var numRows : Int = 0
     internal var usuario : String = ""
     internal var coches : [TransferCoches] = []
@@ -65,30 +64,21 @@ class CarPrincipalView: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let con = Coches ()
             let matr = coches[indexPath.item].getMatricula()
-            coches.remove(at: indexPath.item)
-            tableView.deleteRows(at: [indexPath], with: .fade)
             con.eliminarCoche(matricula: matr, email: self.usuario) {
                 respuesta in
                 
                 //Si el servidor ha fallado
                 if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                    let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                        alert.dismiss(animated: true, completion: nil)
-                        self.cargar()
-                    })
-                    self.present(alert, animated: true)
+                    self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
                 }
                 //Si la conexión se ha realizado correctamente
                 else {
                     //Si los datos no son correctos
                     if (respuesta.value(forKey: "errorno") as! NSNumber != 0) {
-                        let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                            alert.dismiss(animated: true, completion: nil)
-                            self.recargarTabla()
-                        })
-                        self.present(alert, animated: true)
+                        self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
+                    } else if (respuesta.value(forKey: "errorno") as! NSNumber == 0){
+                        self.coches.remove(at: indexPath.item)
+                        tableView.deleteRows(at: [indexPath], with: .fade)
                     }
                 }
             }
@@ -113,11 +103,7 @@ class CarPrincipalView: UITableViewController {
             
             //Si el servidor ha fallado
             if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
-                let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                    alert.dismiss(animated: true, completion: nil)
-                })
-                self.present(alert, animated: true)
+                self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
             }
             else {
                 
@@ -139,6 +125,7 @@ class CarPrincipalView: UITableViewController {
         }
     }
     
+    //Refresca la tabla
     internal func recargarTabla() {
         DispatchQueue.main.async(execute: {
             self.tableView.reloadData()
@@ -146,6 +133,7 @@ class CarPrincipalView: UITableViewController {
         })
     }
     
+    //Determina el texto a rellenar de cada celda de la tabla
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
         

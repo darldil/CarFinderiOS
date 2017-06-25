@@ -23,18 +23,22 @@ class PersonalDataView: UITableViewController {
         datos.append(defaults.string(forKey: "date")!)
     }
     
+    //Devuelve el número de secciones (en este caso siempre 1)
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    //Devuelve el número de filas (en este caso siempre 4)
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
     
+    //Gestiona los efectos visuales de la tabla (al pulsar la fila se deselecciona automáticamente)
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    //Determina el texto a insertar en cada celda de la tabla
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
         

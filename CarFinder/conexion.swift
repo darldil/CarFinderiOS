@@ -8,11 +8,12 @@
 
 import Foundation
 
-class conexion {
+internal class conexion {
     
     //private let url = "http://192.168.1.21/carfinder/"
     private let url = "http://car.abbaticaffe.com/"
     
+    //Ejecuta la petición al servidor, retornando la respuesta de este
     internal func ejecutar(peticion:String, tipo:String, finished: @escaping ((_ respuesta: NSDictionary)->Void)) {
         
         let urlComplete: URL = URL(string: self.url + tipo)!
@@ -38,7 +39,7 @@ class conexion {
             }
             
             else {
-                let dict = ["errorno": 404, "errorMessage": "Existe un problema de conexion con el servidor"] as [String : Any]
+                let dict = ["errorno": 404, "errorMessage": "Existe un problema de conexión con el servidor"] as [String : Any]
                 let aux = dict as NSDictionary
                 finished(aux)
             }

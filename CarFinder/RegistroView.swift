@@ -18,9 +18,8 @@ class RegistroView: UIViewController {
         
         datePickerView.datePickerMode = UIDatePickerMode.date
         sender.inputView = datePickerView
-        datePickerView.addTarget(self, action: #selector(RegistroView.datePickerValueChanged), for: UIControlEvents.valueChanged)
+        datePickerView.addTarget(self, action: #selector(RegistroView.datePickerValorCambiado), for: UIControlEvents.valueChanged)
     }
-    
     
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var lastnameText: UITextField!
@@ -38,14 +37,13 @@ class RegistroView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.hideKeyboardWhenTappedAround()
-        self.prepareDatePicker()
+        self.cerrarElTecladoCuandoSePulseFuera()
+        self.prepararDatePicker()
         self.keyboardUp = false
         
-       NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+       NotificationCenter.default.addObserver(self, selector: #selector(apareceTeclado), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(desapareceTeclado), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,24 +56,26 @@ class RegistroView: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func datePickerValueChanged(sender:UIDatePicker) {
+    //Modifica la fecha obtenida a través del DatePicker
+    func datePickerValorCambiado(sender:UIDatePicker) {
         
-        let dateFormatter = DateFormatter()
+        let formatoFecha = DateFormatter()
         
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        dateFormatter.timeStyle = DateFormatter.Style.none
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        dateTextField.text = dateFormatter.string(from: sender.date)
+        formatoFecha.dateStyle = DateFormatter.Style.medium
+        formatoFecha.timeStyle = DateFormatter.Style.none
+        formatoFecha.dateFormat = "yyyy-MM-dd"
+        dateTextField.text = formatoFecha.string(from: sender.date)
         
     }
     
-    func prepareDatePicker() {
+    //Prepara el selector de fecha
+    func prepararDatePicker() {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: self.view.frame.size.height/6, width: self.view.frame.size.width, height: 40.0))
         
         toolBar.layer.position = CGPoint(x: self.view.frame.size.width/2, y: self.view.frame.size.height-20.0)
         toolBar.barStyle = UIBarStyle.default
         
-        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(RegistroView.donePressed))
+        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(RegistroView.cerrarDatePicker))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
         
         toolBar.setItems([flexSpace,flexSpace,okBarBtn], animated: true)
@@ -84,26 +84,27 @@ class RegistroView: UIViewController {
 
     }
     
-    func donePressed(_ sender: UIBarButtonItem) {
+    func cerrarDatePicker(_ sender: UIBarButtonItem) {
         dateTextField.resignFirstResponder()
     }
     
-    func keyboardWillShow(_ notification:Notification) {
-        adjustingHeight(true, notification: notification)
+    func apareceTeclado(_ notification:Notification) {
+        ajustarAltura(true, notification: notification)
     }
     
-    func keyboardWillHide(_ notification:Notification) {
-        adjustingHeight(false, notification: notification)
+    func desapareceTeclado(_ notification:Notification) {
+        ajustarAltura(false, notification: notification)
     }
     
-    func adjustingHeight(_ show:Bool, notification:Notification) {
+    //Ajusta el ScrollView para cuando aparezca el teclado, de manera que el campo de texto no quede oculto debajo del teclado
+    func ajustarAltura(_ show:Bool, notification:Notification) {
         let userInfo = notification.userInfo!
-        let keyboardFrame = userInfo[UIKeyboardFrameBeginUserInfoKey] as! CGRect
-        let changeInHeight = (keyboardFrame.height + 60) * (show ? 1 : -1)
+        let fragmentoDelTeclado = userInfo[UIKeyboardFrameBeginUserInfoKey] as! CGRect
+        let nuevaAltura = (fragmentoDelTeclado.height + 60) * (show ? 1 : -1)
         
         if (self.keyboardUp == true && show != false) {
-            scrollView.contentInset.bottom += changeInHeight * -1
-            scrollView.scrollIndicatorInsets.bottom += changeInHeight * -1
+            scrollView.contentInset.bottom += nuevaAltura * -1
+            scrollView.scrollIndicatorInsets.bottom += nuevaAltura * -1
         }
         
         if (show == true) {
@@ -114,8 +115,8 @@ class RegistroView: UIViewController {
             self.keyboardUp = false;
         }
         
-        scrollView.contentInset.bottom += changeInHeight
-        scrollView.scrollIndicatorInsets.bottom += changeInHeight
+        scrollView.contentInset.bottom += nuevaAltura
+        scrollView.scrollIndicatorInsets.bottom += nuevaAltura
     }
     
     private func comprobarPasswords(p1 : String, p2 : String) -> Bool {
@@ -134,6 +135,7 @@ class RegistroView: UIViewController {
         return false;
     }
     
+    //Realiza las operaciones necesarias para registrar un usuario en el servidor
     @IBAction func registrar(_ sender: Any) {
         let con = Usuarios ()
         let email: String = self.email.text!
@@ -143,28 +145,19 @@ class RegistroView: UIViewController {
         let apellidos: String = self.lastnameText.text!
         let fecha: String = self.dateTextField.text!
         
+        //Si los campos están vacios
         if (email == "" || pass1 == "" || pass2 == "" || nombre == "" || apellidos == "" || fecha == "") {
-            let alertController = UIAlertController(title:  "Error", message: "Los campos están vacíos", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                self.dismiss(animated: true, completion: nil)
-            })
-            self.present(alertController, animated: true)
+            self.mostrarError(mess: "Los campos están vacíos")
         }
             
+        //Si las contraseñas no coinciden o contienen menos de 5 caracteres.
         else if (!self.comprobarPasswords(p1: pass1, p2: pass2)) {
-            let alertController = UIAlertController(title:  "Error", message: "Las contraseñas no coinciden o es demasiado corta", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                self.dismiss(animated: true, completion: nil)
-            })
-            self.present(alertController, animated: true)
+            self.mostrarError(mess: "Las contraseñas no coinciden o es demasiado corta")
         }
-            
+        
+        //Si el email no tiene una arroba.
         else if (!self.comprobarEmailValido(email: email)) {
-            let alertController = UIAlertController(title:  "Error", message: "El email no es valido", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                self.dismiss(animated: true, completion: nil)
-            })
-            self.present(alertController, animated: true)
+            self.mostrarError(mess: "El email no es válido")
         }
             
         else {
@@ -175,35 +168,28 @@ class RegistroView: UIViewController {
             
             con.registrarUsuario(email: email, pass: pass1, name: nombre, last: apellidos, date: fecha) {
                 respuesta in
-                
+                //Si el servidor no responde
                 if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         alertController.dismiss(animated: true, completion: {
-                            let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                self.dismiss(animated: true, completion: nil)
-                            })
-                            self.present(alert, animated: true)
+                            self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
                         })
                     }
                 }
                 else {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         self.dismiss(animated: true, completion: {
+                            //Registro realizado correctamente
                             if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
-                            
                                 let alert = UIAlertController(title: nil, message: "Ha completado su registro correctamente", preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
                                     self.navigationController?.popViewController(animated: true)
                                 })
                                 self.present(alert, animated: true)
                             }
+                            //Ocurrió un error con la operación
                             else if (respuesta.value(forKey: "errorno") as! NSNumber != 404) {
-                                let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                    self.dismiss(animated: true, completion: nil)
-                                })
-                                self.present(alert, animated: true)
+                                self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
                             }
                         })
                     }

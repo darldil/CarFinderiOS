@@ -10,16 +10,19 @@ import UIKit
 
 
 extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+    //Cierra el teclado cuando se pulsa fuera de este
+    func cerrarElTecladoCuandoSePulseFuera() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.ocultarTeclado))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
-    func dismissKeyboard() {
+    //Cierra el teclado
+    func ocultarTeclado() {
         view.endEditing(true)
     }
     
+    //Muestra un dialogo de carga, que finaliza cuando finalice esta
     func mostrarCargando(mensaje : String) -> UIAlertController {
         let alertController = UIAlertController(title: nil, message: mensaje, preferredStyle: .alert)
         
@@ -31,5 +34,20 @@ extension UIViewController {
         
         alertController.view.addSubview(spinnerIndicator)
         return alertController
+    }
+    
+    //Muestra un dialogo de error
+    func mostrarError(mess: String) {
+        let alert = UIAlertController(title: "Error", message: mess, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
+            alert.dismiss(animated: true, completion: nil)
+        })
+        if presentedViewController == nil {
+            self.present(alert, animated: true, completion: nil)
+        } else{
+            self.dismiss(animated: false) { () -> Void in
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
 }

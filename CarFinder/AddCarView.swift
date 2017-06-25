@@ -18,7 +18,7 @@ class AddCarView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        self.cerrarElTecladoCuandoSePulseFuera()
         let preferences = UserDefaults.standard
         self.usuario = preferences.string(forKey: "user")!
     }
@@ -35,11 +35,7 @@ class AddCarView: UIViewController {
         let mod = self.modelo.text!
         
         if (matr == "" || mar == "" || mod == "") {
-            let alertController = UIAlertController(title:  "Error", message: "Los campos están vacíos", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                alertController.dismiss(animated: true, completion: nil)
-            })
-            self.present(alertController, animated: true)
+            self.mostrarError(mess: "Los campos están vacíos")
         }
         
         else {
@@ -53,11 +49,7 @@ class AddCarView: UIViewController {
                 
                 if (respuesta.value(forKey: "errorno") as! NSNumber == 404) {
                     alertController.dismiss(animated: true, completion: {
-                        let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                            alert.dismiss(animated: true, completion: nil)
-                        })
-                        self.present(alert, animated: true)
+                        self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
                     })
                 }
                 else {
@@ -65,11 +57,7 @@ class AddCarView: UIViewController {
                         if (respuesta.value(forKey: "errorno") as! NSNumber == 0) {
                             self.navigationController?.popViewController(animated: true)
                         } else {
-                            let alert = UIAlertController(title: "Error", message: respuesta.value(forKey: "errorMessage") as? String, preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { action in
-                                alert.dismiss(animated: true, completion: nil)
-                            })
-                            self.present(alert, animated: true)
+                            self.mostrarError(mess: respuesta.value(forKey: "errorMessage") as! String)
                         }
                     })
                 }
