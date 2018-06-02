@@ -10,8 +10,7 @@ import Foundation
 
 internal class conexion {
     
-    //private let url = "http://192.168.1.21/carfinder/"
-    private let url = "http://car.abbaticaffe.com/"
+    private let url = "http://192.168.1.21/carfinder/" //Insertar dirección del servidor
     
     //Ejecuta la petición al servidor, retornando la respuesta de este
     internal func ejecutar(peticion:String, tipo:String, finished: @escaping ((_ respuesta: NSDictionary)->Void)) {
